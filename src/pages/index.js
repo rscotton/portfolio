@@ -8,7 +8,6 @@ import headshot from "../img/headshot.jpg"
 
 export default props => (
   <div className="layout layout-page">
-    {console.log(props)}
     <Header
       title="hi. i'm ryan. i do codes."
       menuItems={props.data.allMenuJson.edges.map(edge => edge.node)}
@@ -19,9 +18,7 @@ export default props => (
     </Panel>
     <Panel name="portfolio">
       <h2>Portfolio</h2>
-      <Portfolio
-        portfolioItems={props.data.allPortfolioJson.edges.map(edge => edge.node)}
-      />
+      <Portfolio portfolioItems={props.data.allPortfolioJson.edges.map(edge => edge.node)} />
     </Panel>
     <Panel name="contact">
       <h2>Contact</h2>
