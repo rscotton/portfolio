@@ -1,0 +1,58 @@
+// NEW: Sass color map
+// When cloning to new site, update color map to most closely reflect primary colors and lighter/darker shades of said colors
+// This will be especially easy when we begin receiving style guides
+// Naming conventions within single color, in order:
+// lightest, lighter, light, base, dark, darker, darkest
+$COLORS: (
+    blue: (
+        base: #3c64c8,
+    ),
+    yellow: (
+        base: #fffa64,
+    ),
+    red: (
+        base: #ff0000,
+    ),
+    purple: (
+        base: #800080,
+    ),
+    grey: (
+        light: #b8b8b8,
+        base: #606060,
+        dark: #555,
+        darker: #2f2f2f,
+    ),
+    white: (
+        base: #fdfdfd, // Use slightly off-white/off-black, more natural and easier on the eyes
+        pure: #fff,
+    ),
+    black: (
+        base: #020202,
+        pure: #000,
+    ),
+);
+
+// Palette color map retrieval function
+@function palette($color, $shade: base) { // Default shade: base
+    // Return warning if color is invalid
+    @if not map-has-key($COLORS, $color) {
+        @warn "There is no color mapped to '#{$color}'";
+        @return null;
+    }
+
+    // Grab shade map for given color
+    $color-map: map-get($COLORS, $color);
+    // Return warning if shade is invalid
+    @if not map-has-key($color-map, $shade) {
+        @warn "There is no '#{$shade}' for the color '#{$color}'";
+        @return null;
+    }
+
+    // Return the proper shade
+    @return map-get($color-map, $shade);
+}
+
+// Social Media
+$color-facebook: #3b5998;
+$color-twitter: #00aced;
+$color-linkedin: #007bb6;

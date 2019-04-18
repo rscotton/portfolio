@@ -1,0 +1,30 @@
+table {
+    margin-top: 0;
+    margin-bottom: 2.8rem;
+    border-collapse: collapse;
+}
+
+caption,
+th,
+td {
+    padding: 8px 12px;
+}
+
+caption {
+    border: 1px solid;
+    border-bottom: 0;
+    font-style: italic;
+    text-align: center;
+}
+
+th,
+td {
+    border: 1px solid palette(black);
+}
+
+
+th,
+tfoot td {
+    background-color: palette(black);
+    color: palette(white, pure);
+}

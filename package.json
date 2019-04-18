@@ -13,8 +13,11 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "breakpoint-sass": "^2.7.1",
     "gatsby": "^2.3.16",
     "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-source-filesystem": "^2.0.29",
+    "gatsby-transformer-json": "^2.1.11",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

@@ -1,5 +1,5 @@
 import React from "react"
-import PortfolioItem from "./portfolio-item"
+import PortfolioItem from "./PortfolioItem"
 
 export default props => (
   <div className="portfolio">
