@@ -1,8 +1,8 @@
 import React from "react"
-import { withPrefix } from 'gatsby'
 import Header from "../components/header";
 import Panel from "../components/panel";
 import Portfolio from "../components/portfolio"
+import headshot from "../img/headshot.jpg"
 
 export default () => (
   <div className="layout layout-page">
@@ -25,7 +25,7 @@ export default () => (
     />
     <Panel name="bio">
       <h2>Biography</h2>
-      <img src={withPrefix('/img/headshot.jpg')} alt="It me." />
+      <img src={headshot} alt="It me." />
     </Panel>
     <Panel name="portfolio">
       <h2>Portfolio</h2>
@@ -42,7 +42,47 @@ export default () => (
           {
             title: "Twin Dolphin",
             url: "http://original-twindolphin.pantheonsite.io",
-          }
+          },
+          {
+            title: "Forgely",
+            url: "https://www.coalmarch.com/solutions/forgely",
+          },
+          {
+            title: "Dunton Destinations",
+            url: "http://dev-dunton.pantheonsite.io/",
+          },
+          {
+            title: "PAEA Learning",
+            url: "https://paealearning.org/",
+          },
+          {
+            title: "Capital Associates",
+            url: "http://dev-capitalassociates.pantheonsite.io/",
+          },
+          {
+            title: "Balentine",
+            url: "https://balentine.com/",
+          },
+          {
+            title: "Counter Culture Coffee",
+            url: "https://counterculturecoffee.com/",
+          },
+          {
+            title: "Fayetteville Technical Community College (FTCC)",
+            url: "https://www.faytechcc.edu/",
+          },
+          {
+            title: "North Carolina Housing Finance Agency (NCHFA)",
+            url: "https://www.nchfa.com/",
+          },
+          {
+            title: "Duke Private Diagnostic Clinic (PDC)",
+            url: "https://pdc.dukehealth.org/",
+          },
+          {
+            title: "The Select Group",
+            url: "https://www.selectgroup.com/",
+          },
         ]}
       />
     </Panel>
