@@ -1,8 +1,7 @@
 # Portfolio
 
 Site Stack:
-* HTML
-* CSS
-* ES6 Javascript
-* React
+* React / Gatsby
 * GraphQL
+* Javascript (ES6)
+* Sass
