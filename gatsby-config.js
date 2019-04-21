@@ -4,13 +4,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
-    `gatsby-transformer-json`,
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `./src/data/`,
       },
     },
+    `gatsby-transformer-json`,
+    `gatsby-transformer-remark`,
   ]
 }
