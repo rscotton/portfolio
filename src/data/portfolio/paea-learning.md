@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 25
 path: "/portfolio/paea-learning"
 title: "PAEA Learning"

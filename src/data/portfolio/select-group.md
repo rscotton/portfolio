@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 60
 path: "/portfolio/select-group"
 title: "The Select Group"

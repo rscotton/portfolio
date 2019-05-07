@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 30
 path: "/portfolio/capital-associates"
 title: "Capital Associates"

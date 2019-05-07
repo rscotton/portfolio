@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 20
 path: "/portfolio/dunton-destinations"
 title: "Dunton Destinations"

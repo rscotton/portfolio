@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 15
 path: "/portfolio/forgely"
 title: "Forgely"

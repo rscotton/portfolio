@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 35
 path: "/portfolio/balentine"
 title: "Balentine"

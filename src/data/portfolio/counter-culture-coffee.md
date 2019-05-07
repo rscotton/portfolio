@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 40
 path: "/portfolio/counter-culture-coffee"
 title: "Counter Culture Coffee"

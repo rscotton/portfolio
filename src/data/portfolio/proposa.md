@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 0
 path: "/portfolio/proposa"
 title: "Proposa"

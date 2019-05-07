@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 45
 path: "/portfolio/fayetteville-tech"
 title: "Fayetteville Technical Community College (FTCC)"

@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 10
 path: "/portfolio/twin-dolphin"
 title: "Twin Dolphin"

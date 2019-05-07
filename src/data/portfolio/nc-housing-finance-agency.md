@@ -1,4 +1,5 @@
 ---
+published: true
 weight: 50
 path: "/portfolio/nc-housing-finance-agency"
 title: "North Carolina Housing Finance Agency (NCHFA)"
