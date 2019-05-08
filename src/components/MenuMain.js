@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 
 export default props => (
   <ul className="menu-primary">
@@ -18,7 +18,7 @@ export default props => (
       `}
       render={data => data.allMenuJson.edges.map(edge => edge.node).map((menuItem, i) => (
           <li key={i} className="nav-item nav-item-primary">
-            <a href={menuItem.href}>{menuItem.label}</a>
+            <Link to={menuItem.href}>{menuItem.label}</Link>
           </li>
         )
       )}

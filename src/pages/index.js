@@ -1,9 +1,17 @@
-import React from "react"
+import React from "react";
+import SmoothScroll from "smooth-scroll";
 import HeaderMain from "../components/HeaderMain";
 import Panel from "../components/Panel";
-import PortfolioMain from "../components/PortfolioMain"
-import headshot from "../img/headshot.jpg"
+import PortfolioMain from "../components/PortfolioMain";
+import headshot from "../img/headshot.jpg";
 
+// https://www.npmjs.com/package/smooth-scroll
+if (typeof window !== "undefined") {
+  SmoothScroll('a[href*="#"]', {
+    speed: 1000,
+    speedAsDuration: true,
+  });
+}
 
 export default props => (
   <div className="layout layout-page">

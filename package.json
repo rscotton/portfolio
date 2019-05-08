@@ -21,7 +21,9 @@
     "gatsby-transformer-remark": "^2.3.8",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-waypoint": "^9.0.2",
+    "smooth-scroll": "^16.0.3"
   },
   "devDependencies": {
     "prettier": "^1.17.0"

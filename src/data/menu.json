@@ -1,14 +1,14 @@
 [
   {
-    "href": "#bio",
+    "href": "/#bio",
     "label": "Bio"
   },
   {
-    "href": "#portfolio",
+    "href": "/#portfolio",
     "label": "Portfolio"
   },
   {
-    "href": "#contact",
+    "href": "/#contact",
     "label": "Contact"
   }
 ]
