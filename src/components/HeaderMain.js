@@ -4,10 +4,10 @@ import MenuMain from "./MenuMain";
 
 export default props => (
   <header>
-    <h1>{props.title}</h1>
     <NavMain>
       <MenuMain />
     </NavMain>
+    <h1>{props.title}</h1>
     {props.children}
   </header>
 );

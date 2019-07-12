@@ -30,6 +30,12 @@ $COLORS: (
         base: #020202,
         pure: #000,
     ),
+    social: (
+        facebook: #3b5998,
+        twitter: #00aced,
+        linkedin: #007bb6,
+        github: #24292e,
+    ),
 );
 
 // Palette color map retrieval function
@@ -52,7 +58,5 @@ $COLORS: (
     @return map-get($color-map, $shade);
 }
 
-// Social Media
-$color-facebook: #3b5998;
-$color-twitter: #00aced;
-$color-linkedin: #007bb6;
+// Social Media machine name list
+$social-media-networks: (facebook, twitter, linkedin, github);

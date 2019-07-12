@@ -73,3 +73,17 @@
     @extend %sr-only;
 }
 
+// Lists
+.list-unstyled,
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-inline-item {
+    display: inline-block;
+
+    &:not(:last-child) {
+        margin-right: 1.6rem;
+    }
+}

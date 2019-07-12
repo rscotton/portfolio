@@ -3,7 +3,7 @@ published: true
 weight: 30
 path: "/portfolio/capital-associates"
 title: "Capital Associates"
-website: "http://dev-capitalassociates.pantheonsite.io"
+website: "https://www.capitalassociates.com/"
 stack: ["PHP", "JavaScript", "Twig", "WordPress", "Sass"]
 ---
 

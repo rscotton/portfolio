@@ -1,0 +1,17 @@
+[
+  {
+    "name": "linkedin",
+    "label": "LinkedIn",
+    "href": "https://www.linkedin.com/in/rscotton"
+  },
+  {
+    "name": "twitter",
+    "label": "Twitter",
+    "href": "https://twitter.com/broaspects"
+  },
+  {
+    "name": "github",
+    "label": "GitHub",
+    "href": "https://github.com/rscotton"
+  }
+]
