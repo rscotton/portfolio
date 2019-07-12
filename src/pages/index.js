@@ -34,7 +34,7 @@ export default props => (
       <p>Hit me up at <a href="mailto:email@example.com">email@example.com</a> and talk nerdy to me.</p>
     </Panel>
     <footer>
-      <p className="small">SVG provided by <a href="https://fontawesome.com/license" target="_blank" rel="noopener noreferrer">Font Awesome</a></p>
+      <p className="small">&copy; {(new Date()).getFullYear()} Ryan Scotton.<br /> Icons by <a href="https://fontawesome.com/license" target="_blank" rel="noopener noreferrer">Font Awesome</a>.</p>
     </footer>
   </div>
 );

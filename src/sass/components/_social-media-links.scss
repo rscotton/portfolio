@@ -1,7 +1,7 @@
 .social-media-links {
   a {
     display: inline-block;
-    width: 3.2rem;
+    width: 2.8rem;
 
     @each $network in $social-media-networks {
       &.#{$network} {
