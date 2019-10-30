@@ -1,0 +1,55 @@
+// Normalize
+@import "src/styleUtils/utils/normalize.scss";
+
+// Mixins
+@import "src/styleUtils/helpers/mixins.scss";
+
+// HTML
+html {
+  @include typography(
+    $stack: map-get($font-stacks, "fira-sans"),
+    $size: rem(16),
+    $line-height: rem(24),
+    $color: palette("black")
+  );
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// 2) Button
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+// 3) Header/Main/Footer
+header,
+main,
+footer {
+  @include flexbox($align-items: center, $direction: column);
+}
+
+// 4) Figure
+figure {
+  margin: 0;
+}
+
+// 5) SVG
+svg {
+  width: inherit;
+}
+
+// 6) Anchor
+a {
+  display: inline-flex;
+}
+
+// 7) Image
+img {
+  max-width: 100%;
+}

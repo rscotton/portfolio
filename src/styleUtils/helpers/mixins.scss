@@ -1,0 +1,483 @@
+/* Table of Contents - Variables for Site
+  A) Base
+  B) Colors
+  C) Z-Index Map
+  D) Static File Paths
+  E) Screen Sizes
+  F) Spacing
+  G) Subnav Heights
+*/
+
+// A) Base
+$font-base: 16;
+// prettier-ignore
+$font-stacks: (
+  base: (Arial, Helvetica, sans-serif),
+  fira-sans:  ('Fira Sans', sans-serif),
+);
+
+// B) Colors
+/*
+  Color Map Guidelines:
+  -Nested color maps represent "namespacing" for aggregation of related colors.
+  -Colors should always be pulled/referenced via the palette() function.
+
+  TODO: Add additional namespaces, reorganize and relabel colors more intuitively
+  as design system comes into focus.
+*/
+$colors: (
+  "space-black": #1f2324,
+  "star-yellow": #ffd71d,
+  "earth-blue": #00a2ff,
+  "moon-rock": #4c4f50,
+  "galaxy-white": #f1f2f2,
+  "stack": (
+    "php": #7f499d,
+    "symfony": #49b85b,
+    "twig": #417ec1,
+    "css": #1bb3a3,
+    "drupal": #2568aa,
+    "wordpress": #ef3635,
+    "angular": #2e3031,
+    "html": #ffd71d,
+    "doctrine": #f1f2f2,
+  ),
+);
+
+// C) Z-Index Map
+$z-index-tiers: (
+  -1: -1,
+  0: 0,
+  1: 10,
+  2: 20,
+  3: 30,
+  4: 40,
+  5: 50,
+  6: 60,
+  7: 70,
+  8: 80,
+  9: 90,
+  10: 100,
+  11: 2147483647
+    // TURN IT UP TO 11. Highest supported z-index, use very sparingly!
+);
+
+// D) Static File Paths
+// Next.js static file serving: https://nextjs.org/docs#static-file-serving-eg-images
+$path-fonts: "static/fonts";
+$path-images: "static/images";
+
+// E) Screen Sizes
+$screen-sizes: (
+  "small": 400px,
+  "medium": 640px,
+  "large": 960px,
+  "max": 1440px,
+);
+
+$screen-size-list: small, medium, large;
+
+// F) Vertical Spacing
+$vertical-spacing: (
+  "text-small": 4,
+  "text-large": 7,
+  "element-small": 10,
+  "element-large": 15,
+  "container-small": 24,
+  "container-large": 32,
+  "section-small": 64,
+  "section-large": 104,
+);
+
+// Subnav Heights
+$subnav-height-mobile: 50;
+$subnav-height-desktop: 62;
+
+/* Table of Contents - Reusable Mixins
+  1) Breakpoint
+  2) Rem Calc
+  3) Screen-Reader Only Text
+  4) IE11 ONLY Styling
+  5) Typography
+  6) Position
+  7) Clean Spacing
+  8) Flexbox
+  9) List Reset
+  10) Color Loop
+  11) Color Palette
+  12) Z-Index Normalization
+  13) Font-Face Declaration
+  14) Transitions
+*/
+
+/*
+  1) Breakpoint
+     Accepts a preset or custom point to apply a media query within the styles.
+     It defaults to a mobile first approach of min-width constraint, but max can also be passed into the mixin to apply a desktop down approach when needed.
+*/
+@mixin bp($point, $constraint: min) {
+  @if ($point == "small") {
+    @media (#{$constraint}-width: map-get($screen-sizes, 'small')) {
+      @content;
+    }
+  } @else if($point == "medium") {
+    @media (#{$constraint}-width: map-get($screen-sizes, 'medium')) {
+      @content;
+    }
+  } @else if($point == "large") {
+    @media (#{$constraint}-width: map-get($screen-sizes, 'large')) {
+      @content;
+    }
+  } @else if($point == "max") {
+    @media (#{$constraint}-width: map-get($screen-sizes, 'max')) {
+      @content;
+    }
+  } @else {
+    @media (#{$constraint}-width: $point) {
+      @content;
+    }
+  }
+}
+
+/*
+  2) Rem Calculations
+     Allows us to calculate rem sizing for any element based off the base font size variable.
+     We strip the unit first, to allow to css to do proper calculations regaurdless of property units.
+     The base font size variable should be the same as the base font size applied the html tag in the global css.
+*/
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function rem($num, $base: $font-base) {
+  $size: strip-unit($num);
+  @return $size / $base * 1rem;
+}
+
+/*
+  3) Screen-Reader Only Text
+     Applies styles to move text offscreen so that it is not a visible part of the design, but can still be accessed via a screen reader.
+     Pulled directly from Bootstrap: https://getbootstrap.com/docs/4.3/utilities/screen-readers/
+*/
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/*
+  4) IE11 ONLY Styling
+     Applies styles within the content block to IE11 browsers only for needed fall back style overrides.
+*/
+@mixin ie11only {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+/*
+  5) Typography
+     Allows for a clean style appraoch to house all styles possibly needed for typography to be done in 1 line, instead of breaking the properties up into separate lines.
+*/
+@mixin typography(
+  $stack: false,
+  $size: false,
+  $weight: false,
+  $color: false,
+  $line-height: false,
+  $transform: false,
+  $decoration: false,
+  $align: false,
+  $letter-spacing: false
+) {
+  @if $color {
+    color: $color;
+  }
+
+  font: {
+    @if $stack {
+      family: $stack;
+    }
+    @if $size {
+      size: $size;
+    }
+    @if $weight {
+      weight: $weight;
+    }
+  }
+
+  @if $line-height {
+    line-height: $line-height;
+  }
+
+  text: {
+    @if $align {
+      align: $align;
+    }
+    @if $decoration {
+      decoration: $decoration;
+    }
+    @if $transform {
+      transform: $transform;
+    }
+  }
+
+  @if $letter-spacing {
+    letter-spacing: $letter-spacing;
+  }
+}
+
+/*
+  6) Position
+     Allows for a clean styling approach to house all styles possibly needed for positioning an element on 1 line, instead of breaking the properties up into separate lines.
+*/
+@mixin position(
+  $position: false,
+  $top: false,
+  $right: false,
+  $bottom: false,
+  $left: false,
+  $z-index: false
+) {
+  @if $position {
+    position: $position;
+  }
+  @if $top {
+    top: $top;
+  }
+  @if $right {
+    right: $right;
+  }
+  @if $bottom {
+    bottom: $bottom;
+  }
+  @if $left {
+    left: $left;
+  }
+  @if $z-index {
+    z-index: $z-index;
+  }
+}
+
+/*
+  7) Clean Spacing
+     Allows for a clean styling approach to house non-short hand margin/padding properties on 1 line, instead of multiple lines.
+     Padding is the default, but margin can be passed in to switch property target.
+     This is not to be used in cases where short hand is appropriate to use, but rather for when we do not need browsers to calculate all 4 styles.
+*/
+@mixin clean-spacing(
+  $prop: padding,
+  $top: false,
+  $right: false,
+  $bottom: false,
+  $left: false
+) {
+  #{$prop}: {
+    @if $top {
+      top: $top;
+    }
+    @if $right {
+      right: $right;
+    }
+    @if $bottom {
+      bottom: $bottom;
+    }
+    @if $left {
+      left: $left;
+    }
+  }
+}
+
+/*
+  8) Flexbox
+     Allows for a clean styling approach to house most commonly used flexbox properties in 1 line, instead of multiple lines.
+     Display: flex is included by default, but cases where it is not needed on children, passing false to the mixin will leave it off.
+     This does not cover all of the possible flex properties. Other properties, such as flex/flex-basis/flex-shrink/etc will still need to be added seperatly to your style block.
+*/
+@mixin flexbox(
+  $includeDisplay: true,
+  $direction: false,
+  $wrap: false,
+  $justify-content: false,
+  $align-items: false
+) {
+  @if $includeDisplay {
+    display: flex;
+  }
+  @if $align-items {
+    align-items: $align-items;
+  }
+  @if $direction {
+    flex-direction: $direction;
+  }
+  @if $justify-content {
+    justify-content: $justify-content;
+  }
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+}
+
+/*
+  9) List reset
+     Resets all spacing styles on an OL/UL to a blank slate for custom updating.
+*/
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+  10) Color Loop
+      Loops through the color map variable and applies each top-level key value to property passed into the mixin.
+*/
+@mixin color-loop($prop, $class: false, $colorMap: $colors) {
+  @each $key, $color in $colorMap {
+    @if type-of($color) == "color" {
+      @if $class {
+        .#{$class}-#{$key} {
+          #{$prop}: $color;
+        }
+      } @else {
+        .#{$key} {
+          #{$prop}: $color;
+        }
+      }
+    }
+  }
+}
+
+/*
+  11) Color Palette
+  Provides a consolidated approach to referencing all colors throughout the app.
+  There are two primary use-cases:
+
+  a) (SIMPLE) Provide a string representing a direct color-key-to-hex-code relationship at the top level of the $colorMap variable.  Ex. palette('primary')
+  b) (NAMESPACED) Provide a "namespaced" string, seperating all map subtree nodes with a '/'. Ex. palette('countryside/primary')
+  
+  The 2nd parameter can be used to override the default color map variable, but this should typically not be used externally (palette() is a recursive function that takes advantage of this)
+*/
+
+@function palette($colorKeyPath, $colorMap: $colors) {
+  // Tokenize key to check for namespacing scoping/submaps
+  $colorTokens: str-split($colorKeyPath, "/");
+  $firstToken: nth($colorTokens, 1);
+
+  // Ensure key exists within color map
+  @if not map-has-key($colorMap, $firstToken) {
+    @warn "There is no '#{$firstToken}' color or color namespace mapped to '#{$colorKeyPath}'";
+    @return null;
+  }
+
+  @if $firstToken == $colorKeyPath {
+    // Color use-case: we have reached a leaf node of the map tree
+    $colorKey: $firstToken;
+    $color: map-get($colorMap, $colorKey);
+
+    // Verify the leaf is a color
+    @if type-of($color) != "color" {
+      @warn "'#{$colorKey}' must map to a color!";
+      @return null;
+    }
+
+    @return $color;
+  } @else if length($colorTokens) > 1 {
+    // Namespace use-case: we need to follow the map tree further to find a color
+    $namespaceKey: $colorKeyPath;
+    $subTreeKey: $firstToken;
+    $subTreeMap: map-get($colorMap, $subTreeKey);
+    $subTreeMapKey: str-slice(
+      $namespaceKey,
+      str-length($subTreeKey) + 2
+    ); // Chop off first token + delimeter to isolate to subtree
+
+    // Redundantly check for non-existent subkeys at this stage to add more contextual error info before recursing
+    $subTreeFirstToken: nth($colorTokens, 2);
+
+    @if not map-has-key($subTreeMap, $subTreeFirstToken) {
+      @warn "There is no '#{$subTreeFirstToken}' in the '#{$subTreeKey}' color namespace";
+      @return null;
+    }
+
+    @return palette($subTreeMapKey, $colorMap: $subTreeMap);
+  } @else {
+    // Catch-all for other variable types (should never fire when $colorMap guidelines are followed)
+    @warn "'#{$colorKeyPath}' must be a color or color namespace!";
+    @return null;
+  }
+}
+
+/*
+  String-split helper function
+  Accepts string and a delimeter to split it by, then returns a List containing all chunked string tokens
+  https://stackoverflow.com/questions/32376461/how-to-split-a-string-into-two-lists-of-numbers-in-sass
+*/
+@function str-split($string, $separator) {
+  // empty array/list
+  $split-arr: ();
+  // first index of separator in string
+  $index: str-index($string, $separator);
+  // loop through string
+  @while $index != null {
+    // get the substring from the first character to the separator
+    $item: str-slice($string, 1, $index - 1);
+    // push item to array
+    $split-arr: append($split-arr, $item);
+    // remove item and separator from string
+    $string: str-slice($string, $index + 1);
+    // find new index of separator
+    $index: str-index($string, $separator);
+  }
+  // add the remaining string to list (the last item)
+  $split-arr: append($split-arr, $string);
+
+  @return $split-arr;
+}
+
+/*
+  12) Z-Index Normalization
+  Think of these z-index maps indices as "tiers".
+  When an element needs a higher z-index, bump up the value in increments of 1 until things work (z(1), z(2), etc.),
+  keeping the minimum  value necessary to get the job done. This level of abstraction can help, in that you are writing
+  your custom z-index values with relative tiers that will always be correct, BUT if a new  toolkit is introduced with
+  some wacky z-indices  that you need to account for, you can just change the actual z-index values in the map to make
+  things work, making sure  that they remain in ascending order relative to the keys.
+*/
+@function z($i) {
+  @if not map-has-key($z-index-tiers, $i) {
+    @warn "There is no z-index value mapped to key '#{$i}'";
+    @return null;
+  }
+
+  // Return the proper z-index
+  @return map-get($z-index-tiers, $i);
+}
+
+/*
+  13) Font-Face Declaration
+  Defines local font faces using references to static files stored in the $path-fonts directory
+  Expects .woff2 and .woff files to exist, per recommended guidelines for IE11 and up: https://css-tricks.com/snippets/css/using-font-face/#article-header-id-1
+*/
+@mixin font-face($family, $file) {
+  @font-face {
+    font-family: "#{$family}";
+    src: url("#{$path-fonts}/#{$file}.woff2") format("woff2"),
+      url("#{$path-fonts}/#{$file}.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+/*
+  14) Transitions
+  Sets defaults for site wide transition type and speed, or allows customizing
+*/
+@function transition($property, $speed: 300ms, $ease: ease-out) {
+  @return $property $speed $ease;
+}
