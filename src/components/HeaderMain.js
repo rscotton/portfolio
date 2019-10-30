@@ -1,6 +1,6 @@
-import React from "react"
-import NavMain from "./NavMain";
-import MenuMain from "./MenuMain";
+import React from "react";
+import NavMain from "src/components/NavMain";
+import MenuMain from "src/components/MenuMain";
 
 export default props => (
   <header>
