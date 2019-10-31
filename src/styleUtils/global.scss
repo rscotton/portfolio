@@ -6,10 +6,12 @@
 
 // HTML
 html {
+  // Based on body copy in style guide
   @include typography(
     $stack: map-get($font-stacks, "fira-sans"),
     $size: rem(16),
-    $line-height: rem(24),
+    $weight: 300,
+    $line-height: rem(28),
     $color: palette("space-black")
   );
   box-sizing: border-box;
@@ -52,4 +54,112 @@ a {
 // 7) Image
 img {
   max-width: 100%;
+}
+
+// Temporary typography styles
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  @include clean-spacing(margin, $top: 0, $bottom: rem(16));
+}
+
+h1,
+.h1 {
+  font-size: rem(78);
+  font-weight: 700;
+  line-height: (78 / 78);
+}
+
+h2,
+.h2 {
+  font-size: rem(48);
+  font-weight: 700;
+  line-height: (62 / 48);
+}
+
+h3,
+.h3 {
+  font-size: rem(40);
+  font-weight: 700;
+  line-height: (52 / 40);
+}
+
+h4,
+.h4 {
+  // same as logo
+  font-size: rem(32);
+  font-weight: 600;
+  line-height: (40 / 32);
+}
+
+h5,
+.h5 {
+  font-size: rem(18);
+  font-weight: 400;
+}
+
+h6,
+.h6 {
+  font-size: rem(14);
+  font-weight: 700;
+  letter-spacing: rem(3);
+  text-transform: uppercase;
+}
+
+.hero {
+  font-size: rem(142);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.copy-large {
+  font-size: rem(18);
+  line-height: (38 / 18);
+}
+
+.pill {
+  font-size: rem(12);
+  font-weight: 400;
+  letter-spacing: rem(1);
+}
+
+.menu-link {
+  font-size: rem(13);
+  font-weight: 400;
+  letter-spacing: rem(4);
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+mark {
+  background-color: palette("star-yellow");
 }
