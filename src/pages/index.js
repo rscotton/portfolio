@@ -6,7 +6,7 @@ import PortfolioMain from "src/components/PortfolioMain";
 import headshot from "src/img/headshot.jpg";
 import { Helmet } from "react-helmet";
 
-export default props => (
+export default () => (
   <>
     <Helmet>
       <html lang="en" />

@@ -1,7 +1,7 @@
-import React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
+import React from "react";
+import { StaticQuery, graphql, Link } from "gatsby";
 
-export default props => (
+export default () => (
   <ul className="menu-primary">
     <StaticQuery
       query={graphql`
@@ -16,12 +16,15 @@ export default props => (
           }
         }
       `}
-      render={data => data.allMenuJson.edges.map(edge => edge.node).map((menuItem, i) => (
-          <li key={i} className="nav-item nav-item-primary">
-            <Link to={menuItem.href}>{menuItem.label}</Link>
-          </li>
-        )
-      )}
+      render={data =>
+        data.allMenuJson.edges
+          .map(edge => edge.node)
+          .map((menuItem, i) => (
+            <li key={i} className="nav-item nav-item-primary">
+              <Link to={menuItem.href}>{menuItem.label}</Link>
+            </li>
+          ))
+      }
     />
   </ul>
 );

@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import PortfolioItemTeaser from "src/components/PortfolioItemTeaser";
 
-export default props => (
+export default () => (
   <div className="portfolio portfolio-main">
     <StaticQuery
       query={graphql`

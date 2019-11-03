@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderMain from "src/components/HeaderMain";
 
-export default props => (
+export default () => (
   <div className="layout layout-page">
     <HeaderMain title="style guide." />
     <h1>Header 1</h1>

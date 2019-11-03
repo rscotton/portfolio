@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
+    "classnames": "^2.2.6",
     "gatsby": "^2.13.25",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.1.13",

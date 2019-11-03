@@ -3,8 +3,8 @@ import IconLinkedin from "src/img/icons/linkedin.svg";
 import IconTwitter from "src/img/icons/twitter.svg";
 import IconGithub from "src/img/icons/github.svg";
 
-export default props => {
-  switch (props.name) {
+export default ({ name }) => {
+  switch (name) {
     case "linkedin":
       return <IconLinkedin />;
     case "twitter":
