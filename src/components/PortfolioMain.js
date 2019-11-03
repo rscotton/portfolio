@@ -1,6 +1,6 @@
-import { graphql, StaticQuery } from 'gatsby';
-import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 import PortfolioItemTeaser from 'src/components/PortfolioItemTeaser';
+import React from 'react';
 
 export default () => (
   <div className="portfolio portfolio-main">

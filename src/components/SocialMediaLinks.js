@@ -1,6 +1,6 @@
+import { StaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import SocialMediaIcon from './SocialMediaIcon';
-import { graphql, StaticQuery } from 'gatsby';
 
 export default () => (
   <ul className="social-media-links list-inline">

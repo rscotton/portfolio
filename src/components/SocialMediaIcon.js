@@ -1,7 +1,7 @@
-import React from 'react';
+import IconGithub from 'src/img/icons/github.svg';
 import IconLinkedin from 'src/img/icons/linkedin.svg';
 import IconTwitter from 'src/img/icons/twitter.svg';
-import IconGithub from 'src/img/icons/github.svg';
+import React from 'react';
 
 export default ({ name }) => {
   switch (name) {

@@ -1,6 +1,6 @@
+import { Waypoint } from 'react-waypoint';
 import React, { useState } from 'react';
 import cn from 'classnames';
-import { Waypoint } from 'react-waypoint';
 
 export default ({ title, website, stack, content }) => {
   const [scrolledTo, setScrolledTo] = useState(false);

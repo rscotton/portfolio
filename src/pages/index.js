@@ -1,10 +1,10 @@
-import React from 'react';
+import { Helmet } from 'react-helmet';
 import HeaderMain from 'src/components/HeaderMain';
 import Panel from 'src/components/Panel';
-import SocialMediaLinks from 'src/components/SocialMediaLinks';
 import PortfolioMain from 'src/components/PortfolioMain';
+import React from 'react';
+import SocialMediaLinks from 'src/components/SocialMediaLinks';
 import headshot from 'src/img/headshot.jpg';
-import { Helmet } from 'react-helmet';
 
 export default () => (
   <>

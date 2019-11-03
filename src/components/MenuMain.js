@@ -1,4 +1,4 @@
-import { graphql, Link, StaticQuery } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 import React from 'react';
 
 export default () => (

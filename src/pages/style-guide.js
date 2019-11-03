@@ -1,5 +1,5 @@
-import React from 'react';
 import HeaderMain from 'src/components/HeaderMain';
+import React from 'react';
 
 export default () => (
   <div className="layout layout-page">
