@@ -1,5 +1,5 @@
-import React from "react";
-import HeaderMain from "src/components/HeaderMain";
+import React from 'react';
+import HeaderMain from 'src/components/HeaderMain';
 
 export default () => (
   <div className="layout layout-page">
@@ -11,13 +11,13 @@ export default () => (
     <h5>Header 5</h5>
     <h6>Header 6</h6>
     <p>
-      I am a paragraph with <strong>strong text</strong> and{" "}
+      I am a paragraph with <strong>strong text</strong> and{' '}
       <em>emphasized words</em> plus <mark>highlighted</mark> items.
     </p>
     <blockquote>
       <span>
         I'm a block quote - yes, it's true. I seem more important than the text
-        around me. I'm...kind of a big deal. And also not wrapped in a paragraph{" "}
+        around me. I'm...kind of a big deal. And also not wrapped in a paragraph{' '}
         <em>yet!</em>
       </span>
       <p>This part of the text is wrapped in a paragraph.</p>

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Waypoint } from "react-waypoint";
-import cn from "classnames";
+import React, { useState } from 'react';
+import cn from 'classnames';
+import { Waypoint } from 'react-waypoint';
 
 export default ({ title, website, stack, content }) => {
   const [scrolledTo, setScrolledTo] = useState(false);
   const handleEnter = () => {
     if (!scrolledTo) setScrolledTo(true);
   };
-  const teaserClasses = cn("portfolio-teaser", scrolledTo && "animate");
+  const teaserClasses = cn('portfolio-teaser', scrolledTo && 'animate');
 
   return (
     <Waypoint bottomOffset="50px" onEnter={handleEnter}>

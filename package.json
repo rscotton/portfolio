@@ -9,7 +9,9 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "eslint:fix": "eslint --fix src",
+    "eslint:fix:dry-run": "eslint --fix-dry-run src"
   },
   "dependencies": {
     "breakpoint-sass": "^2.7.1",
@@ -29,6 +31,11 @@
     "react-waypoint": "^9.0.2"
   },
   "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react-hooks": "^2.2.0",
     "gatsby-plugin-root-import": "^2.0.5",
     "prettier": "^1.18.2"
   },

@@ -1,5 +1,5 @@
-import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { graphql, Link, StaticQuery } from 'gatsby';
+import React from 'react';
 
 export default () => (
   <ul className="menu-primary">

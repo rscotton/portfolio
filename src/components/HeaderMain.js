@@ -1,6 +1,6 @@
-import React from "react";
-import NavMain from "src/components/NavMain";
-import MenuMain from "src/components/MenuMain";
+import React from 'react';
+import MenuMain from 'src/components/MenuMain';
+import NavMain from 'src/components/NavMain';
 
 export default ({ title, children }) => (
   <header>

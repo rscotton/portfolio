@@ -1,1 +1,1 @@
-import "src/styleUtils/global.scss";
+import 'src/styleUtils/global.scss';

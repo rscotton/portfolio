@@ -7,7 +7,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
           include: /\.svg$/, // See below to configure properly

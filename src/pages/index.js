@@ -1,10 +1,10 @@
-import React from "react";
-import HeaderMain from "src/components/HeaderMain";
-import Panel from "src/components/Panel";
-import SocialMediaLinks from "src/components/SocialMediaLinks";
-import PortfolioMain from "src/components/PortfolioMain";
-import headshot from "src/img/headshot.jpg";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import HeaderMain from 'src/components/HeaderMain';
+import Panel from 'src/components/Panel';
+import SocialMediaLinks from 'src/components/SocialMediaLinks';
+import PortfolioMain from 'src/components/PortfolioMain';
+import headshot from 'src/img/headshot.jpg';
+import { Helmet } from 'react-helmet';
 
 export default () => (
   <>
@@ -33,14 +33,14 @@ export default () => (
       <Panel name="contact">
         <h2>Contact</h2>
         <p>
-          Hit me up at <a href="mailto:email@example.com">email@example.com</a>{" "}
+          Hit me up at <a href="mailto:email@example.com">email@example.com</a>{' '}
           and talk nerdy to me.
         </p>
       </Panel>
       <footer>
         <p className="small">
           &copy; {new Date().getFullYear()} Ryan Scotton.
-          <br /> Icons by{" "}
+          <br /> Icons by{' '}
           <a
             href="https://fontawesome.com/license"
             target="_blank"
