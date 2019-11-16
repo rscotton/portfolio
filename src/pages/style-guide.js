@@ -1,9 +1,9 @@
-import HeaderMain from 'src/components/HeaderMain';
+import GlobalHeader from 'src/components/GlobalHeader';
 import React from 'react';
 
 export default () => (
   <div className="layout layout-page">
-    <HeaderMain title="style guide." />
+    <GlobalHeader title="style guide." />
     <h1>Header 1</h1>
     <h2>Header 2</h2>
     <h3>Header 3</h3>

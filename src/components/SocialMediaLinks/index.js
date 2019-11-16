@@ -1,6 +1,6 @@
 import { StaticQuery, graphql } from 'gatsby';
+import Icon from 'src/components/Icon';
 import React from 'react';
-import SocialMediaIcon from './SocialMediaIcon';
 
 export default () => (
   <ul className="social-media-links list-inline">
@@ -30,7 +30,7 @@ export default () => (
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SocialMediaIcon name={socialMediaItem.name} />
+                <Icon name={socialMediaItem.name} />
                 <span className="sr-only">{socialMediaItem.label}</span>
               </a>
             </li>

@@ -19,8 +19,8 @@ export default () => (
       render={data =>
         data.allMenuJson.edges
           .map(edge => edge.node)
-          .map((menuItem, i) => (
-            <li key={i} className="nav-item nav-item-primary">
+          .map(menuItem => (
+            <li key={menuItem.label} className="nav-item nav-item-primary">
               <Link to={menuItem.href}>{menuItem.label}</Link>
             </li>
           ))

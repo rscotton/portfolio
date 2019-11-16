@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet';
-import HeaderMain from 'src/components/HeaderMain';
-import Panel from 'src/components/Panel';
-import PortfolioMain from 'src/components/PortfolioMain';
+import GlobalHeader from 'src/components/GlobalHeader';
+import PagePanel from 'src/components/PagePanel';
+import PortfolioItems from 'src/components/PortfolioItems';
 import React from 'react';
 import SocialMediaLinks from 'src/components/SocialMediaLinks';
 import headshot from 'src/img/headshot.jpg';
@@ -14,8 +14,8 @@ export default () => (
       <meta name="description" content="hi. i'm ryan. i do codes." />
     </Helmet>
     <div className="layout layout-page">
-      <HeaderMain title="hi. i'm ryan. i do codes." />
-      <Panel name="bio">
+      <GlobalHeader title="hi. i'm ryan. i do codes." />
+      <PagePanel name="bio">
         <h2>Biography</h2>
         <img className="avatar" src={headshot} alt="It me." title="It me." />
         <SocialMediaLinks />
@@ -25,18 +25,15 @@ export default () => (
           eveniet exercitationem iure magni nam quibusdam repellendus
           repudiandae sed sint soluta tenetur vitae.
         </p>
-      </Panel>
-      <Panel name="portfolio">
-        <h2>Portfolio</h2>
-        <PortfolioMain />
-      </Panel>
-      <Panel name="contact">
+      </PagePanel>
+      <PortfolioItems />
+      <PagePanel name="contact">
         <h2>Contact</h2>
         <p>
           Hit me up at <a href="mailto:email@example.com">email@example.com</a>{' '}
           and talk nerdy to me.
         </p>
-      </Panel>
+      </PagePanel>
       <footer>
         <p className="small">
           &copy; {new Date().getFullYear()} Ryan Scotton.

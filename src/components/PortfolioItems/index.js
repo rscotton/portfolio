@@ -1,9 +1,9 @@
 import { StaticQuery, graphql } from 'gatsby';
-import PortfolioItemTeaser from 'src/components/PortfolioItemTeaser';
+import PortfolioSection from 'src/components/PortfolioSection';
 import React from 'react';
 
 export default () => (
-  <div className="portfolio portfolio-main">
+  <div id="portfolio" className="portfolio portfolio-items">
     <StaticQuery
       query={graphql`
         query PortfolioMainQuery {
@@ -14,6 +14,7 @@ export default () => (
             edges {
               node {
                 frontmatter {
+                  path
                   title
                   website
                   stack
@@ -27,9 +28,9 @@ export default () => (
       render={data =>
         data.allMarkdownRemark.edges
           .map(edge => edge.node)
-          .map((portfolioItem, i) => (
-            <PortfolioItemTeaser
-              key={i}
+          .map(portfolioItem => (
+            <PortfolioSection
+              key={portfolioItem.frontmatter.path}
               {...portfolioItem.frontmatter}
               content={portfolioItem.html}
             />
