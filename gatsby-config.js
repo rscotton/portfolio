@@ -5,7 +5,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-root-import`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        cssLoaderOptions: {
+          camelCase: false,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {

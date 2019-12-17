@@ -1,0 +1,62 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+.stack-badge {
+  @include typography($weight: 600, $letter-spacing: rem(1), $line-height: 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(8) rem(24);
+  border-radius: rem(16);
+
+  &-php,
+  &-javascript,
+  &-wordpress,
+  &-sass,
+  &-drupal,
+  &-symfony,
+  &-angular,
+  &-twig {
+    color: palette('galaxy-white');
+  }
+
+  &-javascript,
+  &-doctrine {
+    color: palette('space-black');
+  }
+
+  &-php {
+    background-color: palette('stack/php');
+  }
+
+  &-javascript {
+    background-color: palette('stack/javascript');
+  }
+
+  &-wordpress {
+    background-color: palette('stack/wordpress');
+  }
+
+  &-twig {
+    background-color: palette('stack/twig');
+  }
+
+  &-sass {
+    background-color: palette('stack/sass');
+  }
+
+  &-drupal {
+    background-color: palette('stack/drupal');
+  }
+
+  &-symfony {
+    background-color: palette('stack/symfony');
+  }
+
+  &-angular {
+    background-color: palette('stack/angular');
+  }
+
+  &-doctrine {
+    background-color: palette('stack/doctrine');
+  }
+}

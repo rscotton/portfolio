@@ -26,21 +26,21 @@ $font-stacks: (
   as design system comes into focus.
 */
 $colors: (
-  "space-black": #1f2324,
-  "star-yellow": #ffd71d,
-  "earth-blue": #00a2ff,
-  "moon-rock": #4c4f50,
-  "galaxy-white": #f1f2f2,
-  "stack": (
-    "php": #7f499d,
-    "symfony": #49b85b,
-    "twig": #417ec1,
-    "css": #1bb3a3,
-    "drupal": #2568aa,
-    "wordpress": #ef3635,
-    "angular": #2e3031,
-    "html": #ffd71d,
-    "doctrine": #f1f2f2,
+  'space-black': #1f2324,
+  'star-yellow': #ffd71d,
+  'earth-blue': #00a2ff,
+  'moon-rock': #4c4f50,
+  'galaxy-white': #f1f2f2,
+  'stack': (
+    'php': #7f499d,
+    'symfony': #49b85b,
+    'twig': #417ec1,
+    'sass': #1bb3a3,
+    'drupal': #2568aa,
+    'wordpress': #ef3635,
+    'angular': #2e3031,
+    'javascript': #ffd71d,
+    'doctrine': #f1f2f2,
   ),
 );
 
@@ -64,29 +64,29 @@ $z-index-tiers: (
 
 // D) Static File Paths
 // Next.js static file serving: https://nextjs.org/docs#static-file-serving-eg-images
-$path-fonts: "static/fonts";
-$path-images: "static/images";
+$path-fonts: 'static/fonts';
+$path-images: 'static/images';
 
 // E) Screen Sizes
 $screen-sizes: (
-  "small": 400px,
-  "medium": 640px,
-  "large": 960px,
-  "max": 1440px,
+  'small': 400px,
+  'medium': 640px,
+  'large': 960px,
+  'max': 1440px,
 );
 
 $screen-size-list: small, medium, large;
 
 // F) Vertical Spacing
 $vertical-spacing: (
-  "text-small": 4,
-  "text-large": 7,
-  "element-small": 10,
-  "element-large": 15,
-  "container-small": 24,
-  "container-large": 32,
-  "section-small": 64,
-  "section-large": 104,
+  'text-small': 4,
+  'text-large': 7,
+  'element-small': 10,
+  'element-large': 15,
+  'container-small': 24,
+  'container-large': 32,
+  'section-small': 64,
+  'section-large': 104,
 );
 
 // Subnav Heights
@@ -116,19 +116,19 @@ $subnav-height-desktop: 62;
      It defaults to a mobile first approach of min-width constraint, but max can also be passed into the mixin to apply a desktop down approach when needed.
 */
 @mixin bp($point, $constraint: min) {
-  @if ($point == "small") {
+  @if ($point == 'small') {
     @media (#{$constraint}-width: map-get($screen-sizes, 'small')) {
       @content;
     }
-  } @else if($point == "medium") {
+  } @else if($point == 'medium') {
     @media (#{$constraint}-width: map-get($screen-sizes, 'medium')) {
       @content;
     }
-  } @else if($point == "large") {
+  } @else if($point == 'large') {
     @media (#{$constraint}-width: map-get($screen-sizes, 'large')) {
       @content;
     }
-  } @else if($point == "max") {
+  } @else if($point == 'max') {
     @media (#{$constraint}-width: map-get($screen-sizes, 'max')) {
       @content;
     }
@@ -339,7 +339,7 @@ $subnav-height-desktop: 62;
 */
 @mixin color-loop($prop, $class: false, $colorMap: $colors) {
   @each $key, $color in $colorMap {
-    @if type-of($color) == "color" {
+    @if type-of($color) == 'color' {
       @if $class {
         .#{$class}-#{$key} {
           #{$prop}: $color;
@@ -366,7 +366,7 @@ $subnav-height-desktop: 62;
 
 @function palette($colorKeyPath, $colorMap: $colors) {
   // Tokenize key to check for namespacing scoping/submaps
-  $colorTokens: str-split($colorKeyPath, "/");
+  $colorTokens: str-split($colorKeyPath, '/');
   $firstToken: nth($colorTokens, 1);
 
   // Ensure key exists within color map
@@ -381,7 +381,7 @@ $subnav-height-desktop: 62;
     $color: map-get($colorMap, $colorKey);
 
     // Verify the leaf is a color
-    @if type-of($color) != "color" {
+    @if type-of($color) != 'color' {
       @warn "'#{$colorKey}' must map to a color!";
       @return null;
     }
@@ -466,9 +466,9 @@ $subnav-height-desktop: 62;
 */
 @mixin font-face($family, $file) {
   @font-face {
-    font-family: "#{$family}";
-    src: url("#{$path-fonts}/#{$file}.woff2") format("woff2"),
-      url("#{$path-fonts}/#{$file}.woff") format("woff");
+    font-family: '#{$family}';
+    src: url('#{$path-fonts}/#{$file}.woff2') format('woff2'),
+      url('#{$path-fonts}/#{$file}.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
