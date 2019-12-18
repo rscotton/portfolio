@@ -12,6 +12,7 @@ export default () => (
       <html lang="en" />
       <title>hi. i'm ryan.</title>
       <meta name="description" content="hi. i'm ryan. i do codes." />
+      <meta name="theme-color" content="#1f2324" />
     </Helmet>
     <div className="layout layout-page">
       <GlobalHeader title="hi. i'm ryan. i do codes." />
