@@ -3,10 +3,24 @@ import PagePanel from 'src/components/PagePanel';
 import React, { useState } from 'react';
 import cn from 'classnames';
 
-export default ({ title, website, stack, content }) => {
+interface Props {
+  title: string;
+  website: string;
+  stack: string[];
+  content: string;
+}
+
+const PortfolioSection: React.FC<Props> = ({
+  title,
+  website,
+  stack,
+  content,
+}) => {
   const [scrolledTo, setScrolledTo] = useState(false);
   const handleEnter = () => {
-    if (!scrolledTo) setScrolledTo(true);
+    if (!scrolledTo) {
+      setScrolledTo(true);
+    }
   };
   const teaserClasses = cn('portfolio-teaser', scrolledTo && 'animate');
 
@@ -42,3 +56,5 @@ export default ({ title, website, stack, content }) => {
     </PagePanel>
   );
 };
+
+export default PortfolioSection;

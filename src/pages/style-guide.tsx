@@ -1,10 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import GlobalHeader from 'src/components/GlobalHeader';
+import GlobalHeader from '@src/components/GlobalHeader';
 import React from 'react';
-import SocialMediaLinks from 'src/components/SocialMediaLinks';
-import StackBadgeCollection from 'src/components/StackBadge/components/StackBadgeCollection';
+import SocialMediaLinks from '@src/components/SocialMediaLinks';
+import StackBadgeCollection from '@src/components/StackBadge/components/StackBadgeCollection';
 
-export default () => {
+const StyleGuidePage: React.FC = () => {
   const stackItemsQuery = useStaticQuery(graphql`
     query StackItemsQuery {
       allMarkdownRemark {
@@ -19,14 +19,14 @@ export default () => {
     }
   `);
   const stackItems = stackItemsQuery.allMarkdownRemark.edges.reduce(
-    (allStackItems, queryResult) =>
+    (allStackItems: string[], queryResult: any) =>
       (allStackItems = [
         ...allStackItems,
         ...queryResult.node.frontmatter.stack,
       ]),
     []
   );
-  const flatStackItems = [...new Set(stackItems)];
+  const flatStackItems: string[] = [...new Set<string>(stackItems)];
 
   return (
     <div className="layout layout-page">
@@ -68,3 +68,5 @@ export default () => {
     </div>
   );
 };
+
+export default StyleGuidePage;

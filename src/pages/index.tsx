@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet';
-import GlobalHeader from 'src/components/GlobalHeader';
-import PagePanel from 'src/components/PagePanel';
-import PortfolioItems from 'src/components/PortfolioItems';
+import GlobalHeader from '@src/components/GlobalHeader';
+import PagePanel from '@src/components/PagePanel';
+import PortfolioItems from '@src/components/PortfolioItems';
 import React from 'react';
-import SocialMediaLinks from 'src/components/SocialMediaLinks';
-import headshot from 'src/img/headshot.jpg';
+import SocialMediaLinks from '@src/components/SocialMediaLinks';
+import headshot from '@src/img/headshot.jpg';
 
-export default () => (
+const IndexPage: React.FC = () => (
   <>
     <Helmet>
       <html lang="en" />
@@ -52,3 +52,5 @@ export default () => (
     </div>
   </>
 );
+
+export default IndexPage;

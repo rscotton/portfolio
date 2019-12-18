@@ -1,13 +1,22 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { slugify } from 'src/utils/helpers';
-import Icon from 'src/components/Icon';
+import Icon from '@src/components/Icon';
 import React from 'react';
 import cn from 'classnames';
 import componentStyles from './styles.module.scss';
-import listStyles from 'src/styleUtils/modules/lists.module.scss';
-import visibilityStyles from 'src/styleUtils/modules/visibility.module.scss';
+import listStyles from '@src/styleUtils/modules/lists.module.scss';
+import visibilityStyles from '@src/styleUtils/modules/visibility.module.scss';
+import { SocialMediaNode } from '@src/types';
 
-export default ({ theme = 'dark', alignment = 'horizontal' }) => {
+interface Props {
+  theme?: 'dark' | 'light';
+  alignment?: 'horizontal' | 'vertical';
+}
+
+const SocialMediaLinks: React.FC<Props> = ({
+  theme = 'dark',
+  alignment = 'horizontal',
+}) => {
   const socialMediaQuery = useStaticQuery(graphql`
     query SocialMediaQuery {
       allSocialMediaJson {
@@ -22,7 +31,7 @@ export default ({ theme = 'dark', alignment = 'horizontal' }) => {
     }
   `);
   const socialMediaItems = socialMediaQuery.allSocialMediaJson.edges.map(
-    edge => edge.node
+    (edge: any) => edge.node
   );
 
   return (
@@ -33,7 +42,7 @@ export default ({ theme = 'dark', alignment = 'horizontal' }) => {
         listStyles['list-reset']
       )}
     >
-      {socialMediaItems.map(socialMediaItem => (
+      {socialMediaItems.map((socialMediaItem: SocialMediaNode) => (
         <li
           key={socialMediaItem.label}
           className={componentStyles['link-item']}
@@ -59,3 +68,5 @@ export default ({ theme = 'dark', alignment = 'horizontal' }) => {
     </ul>
   );
 };
+
+export default SocialMediaLinks;

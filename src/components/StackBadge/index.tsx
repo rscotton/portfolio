@@ -1,9 +1,13 @@
-import { slugify } from 'src/utils/helpers';
+import { slugify } from '@src/utils/helpers';
 import React from 'react';
 import cn from 'classnames';
 import componentStyles from './styles.module.scss';
 
-export default ({ stackItem }) => (
+interface Props {
+  stackItem: string;
+}
+
+const StackBadge: React.FC<Props> = ({ stackItem }) => (
   <div
     className={cn(
       componentStyles.badge,
@@ -13,3 +17,5 @@ export default ({ stackItem }) => (
     {stackItem}
   </div>
 );
+
+export default StackBadge;
