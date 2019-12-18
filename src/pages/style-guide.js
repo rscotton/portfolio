@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import GlobalHeader from 'src/components/GlobalHeader';
 import React from 'react';
-import StackBadge from 'src/components/StackBadge';
+import StackBadgeCollection from 'src/components/StackBadge/components/StackBadgeCollection';
 
 export default () => {
   const stackItemsQuery = useStaticQuery(graphql`
@@ -51,9 +51,7 @@ export default () => {
       </blockquote>
       <section>
         <h2>Badges</h2>
-        {flatStackItems.map(stackItem => (
-          <StackBadge key={stackItem} stackItem={stackItem}></StackBadge>
-        ))}
+        <StackBadgeCollection stackItems={flatStackItems} />
       </section>
     </div>
   );

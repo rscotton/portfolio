@@ -1,0 +1,17 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+$collection-item-bottom-margin: rem(6);
+
+.collection {
+  @include list-reset;
+  margin-bottom: -$collection-item-bottom-margin;
+
+  &-item {
+    @include clean-spacing(
+      $prop: margin,
+      $right: rem(8),
+      $bottom: $collection-item-bottom-margin
+    );
+    display: inline-block;
+  }
+}

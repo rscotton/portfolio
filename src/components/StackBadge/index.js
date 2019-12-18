@@ -6,9 +6,8 @@ import componentStyles from './styles.module.scss';
 export default ({ stackItem }) => (
   <div
     className={cn(
-      'h6',
-      componentStyles['stack-badge'],
-      componentStyles[`stack-badge-${slugify(stackItem)}`]
+      componentStyles.badge,
+      componentStyles[`badge-${slugify(stackItem)}`]
     )}
   >
     {stackItem}

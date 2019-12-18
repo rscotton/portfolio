@@ -33,14 +33,14 @@ $colors: (
   'galaxy-white': #f1f2f2,
   'stack': (
     'php': #7f499d,
-    'symfony': #49b85b,
-    'twig': #417ec1,
-    'sass': #1bb3a3,
+    'symfony': #2e3031,
+    'sass': #bf4080,
+    'twig': #49b85b,
     'drupal': #2568aa,
-    'wordpress': #ef3635,
-    'angular': #2e3031,
+    'wordpress': #417ec1,
+    'angular': #ef3635,
     'javascript': #ffd71d,
-    'doctrine': #f1f2f2,
+    'doctrine': #fc6a31,
   ),
 );
 
@@ -63,7 +63,6 @@ $z-index-tiers: (
 );
 
 // D) Static File Paths
-// Next.js static file serving: https://nextjs.org/docs#static-file-serving-eg-images
 $path-fonts: 'static/fonts';
 $path-images: 'static/images';
 
