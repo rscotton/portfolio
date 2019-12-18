@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import GlobalHeader from 'src/components/GlobalHeader';
 import React from 'react';
+import SocialMediaLinks from 'src/components/SocialMediaLinks';
 import StackBadgeCollection from 'src/components/StackBadge/components/StackBadgeCollection';
 
 export default () => {
@@ -52,6 +53,17 @@ export default () => {
       <section>
         <h2>Badges</h2>
         <StackBadgeCollection stackItems={flatStackItems} />
+      </section>
+      <section>
+        <h2>Social Media</h2>
+        <h3>Dark - Horizontal</h3>
+        <SocialMediaLinks theme="dark" alignment="horizontal" />
+        <h3>Light - Horizontal</h3>
+        <SocialMediaLinks theme="light" alignment="horizontal" />
+        <h3>Dark - Vertical</h3>
+        <SocialMediaLinks theme="dark" alignment="vertical" />
+        <h3>Light - Vertical</h3>
+        <SocialMediaLinks theme="light" alignment="vertical" />
       </section>
     </div>
   );

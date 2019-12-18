@@ -3,7 +3,6 @@
 $collection-item-bottom-margin: rem(6);
 
 .collection {
-  @include list-reset;
   margin-bottom: -$collection-item-bottom-margin;
 
   &-item {

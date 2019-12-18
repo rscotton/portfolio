@@ -1,0 +1,37 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+.link-items {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+
+  &-horizontal {
+    .link-item + .link-item {
+      margin-left: rem(16);
+    }
+  }
+
+  &-vertical {
+    flex-direction: column;
+
+    .link-item + .link-item {
+      margin-top: rem(16);
+    }
+  }
+}
+
+.link-item {
+  display: inline-block;
+}
+
+.link {
+  width: rem(24);
+
+  &-dark {
+    color: palette('space-black');
+  }
+
+  &-light {
+    color: palette('galaxy-white');
+  }
+}
