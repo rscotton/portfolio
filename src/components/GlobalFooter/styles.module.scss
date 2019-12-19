@@ -1,0 +1,59 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+// Killing default margins
+.connect,
+.copyright,
+.attribution {
+  margin: 0;
+}
+
+// hide beneath medium utility
+// TODO: Move to global utility fall for all permutations
+.hide-small {
+  display: none;
+
+  @include bp('medium') {
+    display: block;
+  }
+}
+
+// Footer tag
+.footer {
+  padding-top: rem(20);
+  padding-bottom: rem(20);
+}
+
+.top-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+// Connect section
+.section-connect {
+  line-height: 1;
+
+  @include bp('medium') {
+    display: flex;
+    align-items: center;
+    line-height: inherit;
+  }
+}
+
+.connect {
+  margin-right: rem(16);
+}
+
+// Copyright section
+.section-copyright {
+  order: -1;
+}
+
+// Attribution
+.attribution {
+  width: 100%;
+  margin-top: 8px;
+  font-size: rem(10);
+  text-align: right;
+}

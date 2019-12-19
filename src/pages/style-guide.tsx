@@ -3,6 +3,7 @@ import GlobalHeader from '@src/components/GlobalHeader';
 import React from 'react';
 import SocialMediaLinks from '@src/components/SocialMediaLinks';
 import StackBadgeCollection from '@src/components/StackBadge/components/StackBadgeCollection';
+import GlobalFooter from '@src/components/GlobalFooter';
 
 const StyleGuidePage: React.FC = () => {
   const stackItemsQuery = useStaticQuery(graphql`
@@ -65,6 +66,7 @@ const StyleGuidePage: React.FC = () => {
         <h3>Light - Vertical</h3>
         <SocialMediaLinks theme="light" alignment="vertical" />
       </section>
+      <GlobalFooter />
     </div>
   );
 };

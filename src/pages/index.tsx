@@ -5,6 +5,7 @@ import PortfolioItems from '@src/components/PortfolioItems';
 import React from 'react';
 import SocialMediaLinks from '@src/components/SocialMediaLinks';
 import headshot from '@src/img/headshot.jpg';
+import GlobalFooter from '@src/components/GlobalFooter';
 
 const IndexPage: React.FC = () => (
   <>
@@ -35,20 +36,7 @@ const IndexPage: React.FC = () => (
           and talk nerdy to me.
         </p>
       </PagePanel>
-      <footer>
-        <p className="small">
-          &copy; {new Date().getFullYear()} Ryan Scotton.
-          <br /> Icons by{' '}
-          <a
-            href="https://fontawesome.com/license"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Font Awesome
-          </a>
-          .
-        </p>
-      </footer>
+      <GlobalFooter />
     </div>
   </>
 );

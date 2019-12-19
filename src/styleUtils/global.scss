@@ -1,18 +1,18 @@
 // Normalize
-@import "src/styleUtils/utils/normalize.scss";
+@import 'src/styleUtils/utils/normalize.scss';
 
 // Mixins
-@import "src/styleUtils/helpers/mixins.scss";
+@import 'src/styleUtils/helpers/mixins.scss';
 
 // HTML
 html {
   // Based on body copy in style guide
   @include typography(
-    $stack: map-get($font-stacks, "fira-sans"),
+    $stack: map-get($font-stacks, 'fira-sans'),
     $size: rem(16),
     $weight: 300,
     $line-height: rem(28),
-    $color: palette("space-black")
+    $color: palette('space-black')
   );
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -31,8 +31,7 @@ button:not(:disabled) {
 
 // 3) Header/Main/Footer
 header,
-main,
-footer {
+main {
   @include flexbox($align-items: center, $direction: column);
 }
 
@@ -49,6 +48,7 @@ svg {
 // 6) Anchor
 a {
   display: inline-flex;
+  color: palette('stack/drupal');
 }
 
 // 7) Image
@@ -161,5 +161,5 @@ em {
 }
 
 mark {
-  background-color: palette("star-yellow");
+  background-color: palette('star-yellow');
 }
