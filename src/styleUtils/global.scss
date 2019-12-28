@@ -30,29 +30,23 @@ button:not(:disabled) {
   cursor: pointer;
 }
 
-// 3) Header/Main/Footer
-header,
-main {
-  @include flexbox($align-items: center, $direction: column);
-}
-
-// 4) Figure
+// 3) Figure
 figure {
   margin: 0;
 }
 
-// 5) SVG
+// 4) SVG
 svg {
   width: inherit;
 }
 
-// 6) Anchor
+// 5) Anchor
 a {
   display: inline-flex;
   color: palette('stack/drupal');
 }
 
-// 7) Image
+// 6) Image
 img {
   max-width: 100%;
 }

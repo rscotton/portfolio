@@ -12,5 +12,6 @@
   },
   "[markdown]": {
     "editor.tabSize": 4
-  }
+  },
+  "workbench.tree.indent": 18
 }

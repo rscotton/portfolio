@@ -24,10 +24,13 @@
 }
 
 .top-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  @include bp(small) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+  }
 }
 
 // Connect section
@@ -47,7 +50,20 @@
 
 // Copyright section
 .section-copyright {
-  order: -1;
+  margin-top: rem(16);
+
+  @include bp(small) {
+    order: -1;
+    margin-top: 0;
+  }
+}
+
+.copyright {
+  font-size: rem(14);
+
+  @include bp(small) {
+    font-size: rem(18);
+  }
 }
 
 // Attribution

@@ -25,7 +25,11 @@
 }
 
 .link {
-  width: rem(24);
+  width: rem(20);
+
+  @include bp(small) {
+    width: rem(24);
+  }
 
   &-dark {
     color: palette('space-black');
