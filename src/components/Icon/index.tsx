@@ -1,6 +1,6 @@
-import IconGithub from '@src/img/icons/github.svg';
-import IconLinkedin from '@src/img/icons/linkedin.svg';
-import IconTwitter from '@src/img/icons/twitter.svg';
+import IconGithub from '@src/data/img/icons/github.svg';
+import IconLinkedin from '@src/data/img/icons/linkedin.svg';
+import IconTwitter from '@src/data/img/icons/twitter.svg';
 import React from 'react';
 
 interface Props {

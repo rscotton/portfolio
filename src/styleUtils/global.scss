@@ -14,6 +14,7 @@ html {
     $line-height: rem(28),
     $color: palette('space-black')
   );
+  background-color: palette('off-white');
   box-sizing: border-box;
   scroll-behavior: smooth;
 }

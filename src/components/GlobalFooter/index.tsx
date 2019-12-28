@@ -3,10 +3,11 @@ import componentStyles from './styles.module.scss';
 import containerStyles from '@src/styleUtils/modules/containers.module.scss';
 import SocialMediaLinks from '@src/components/SocialMediaLinks';
 import cn from 'classnames';
+import Container from '@src/components/Container';
 
 const GlobalFooter: React.FC = () => (
   <footer aria-label="Site Footer" className={componentStyles.footer}>
-    <div className={containerStyles.container}>
+    <Container>
       <div className={componentStyles['top-container']}>
         <section
           aria-label="Connect"
@@ -46,7 +47,7 @@ const GlobalFooter: React.FC = () => (
           Font Awesome
         </a>
       </small>
-    </div>
+    </Container>
   </footer>
 );
 

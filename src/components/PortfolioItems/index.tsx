@@ -37,7 +37,6 @@ const PortfolioItems: React.FC = () => {
           content={portfolioItem.html}
         />
       ))}
-      />
     </div>
   );
 };

@@ -6,6 +6,7 @@ module.exports = {
     `gatsby-plugin-root-import`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -39,6 +40,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
     `gatsby-transformer-remark`,
   ],
