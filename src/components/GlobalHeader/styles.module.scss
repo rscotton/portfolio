@@ -1,0 +1,108 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+$section-padding: rem(64);
+
+.hero-wrap {
+  @include clean-spacing(
+    padding,
+    $top: $section-padding,
+    $bottom: $section-padding
+  );
+  position: relative;
+  background-color: palette('space-black');
+  color: palette('galaxy-white');
+}
+
+.nav-wrap {
+  @include bp(medium) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  @include bp(large) {
+    width: percentage(4/5);
+  }
+
+  @include bp(max) {
+    width: percentage(2/3);
+  }
+}
+
+.home-link {
+  text-transform: lowercase;
+  color: palette('galaxy-white');
+
+  @include bp(medium) {
+    margin-bottom: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: palette('earth-blue');
+    text-decoration: none;
+  }
+}
+
+.hero {
+  padding-top: rem(60);
+
+  @include bp(medium) {
+    @include clean-spacing(padding, $top: rem(120), $bottom: rem(160));
+  }
+}
+
+.content-wrap {
+  @include bp(medium) {
+    width: 60%;
+  }
+
+  @include bp(medium) {
+    width: 100%;
+  }
+}
+
+.title,
+.big-title,
+.sub-title {
+  margin-bottom: 0;
+}
+
+.big-title {
+  font-size: rem(50);
+  line-height: 1;
+
+  @include bp(medium) {
+    font-size: rem(64);
+  }
+
+  @include bp(large) {
+    font-size: rem(120);
+  }
+}
+
+.sub-title {
+  font-size: rem(32);
+  color: palette('star-yellow');
+
+  @include bp(medium) {
+    font-size: rem(44);
+  }
+
+  @include bp(large) {
+    font-size: rem(68);
+  }
+}
+
+.body {
+  margin-top: rem(16);
+  font-weight: 500;
+
+  @include bp(medium) {
+    margin-top: rem(64);
+  }
+
+  @include bp(large) {
+    margin-top: 0;
+  }
+}

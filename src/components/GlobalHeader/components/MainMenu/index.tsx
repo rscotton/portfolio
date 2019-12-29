@@ -1,6 +1,9 @@
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 import { MenuItemNode } from '@src/types';
+import listStyles from '@src/styleUtils/modules/lists.module.scss';
+import componentStyles from './styles.module.scss';
+import cn from 'classnames';
 
 const GlobalHeader: React.FC = () => {
   const mainMenuQuery = useStaticQuery(graphql`
@@ -20,10 +23,12 @@ const GlobalHeader: React.FC = () => {
   );
 
   return (
-    <ul className="menu-primary">
+    <ul className={cn(listStyles['list-reset'], componentStyles.menu)}>
       {menuItems.map((menuItem: MenuItemNode) => (
-        <li key={menuItem.label} className="nav-item nav-item-primary">
-          <Link to={menuItem.href}>{menuItem.label}</Link>
+        <li key={menuItem.label} className={componentStyles['menu-item']}>
+          <Link to={menuItem.href} className={componentStyles.link}>
+            {menuItem.label}
+          </Link>
         </li>
       ))}
     </ul>

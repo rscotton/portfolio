@@ -1,6 +1,5 @@
 import React from 'react';
 import componentStyles from './styles.module.scss';
-import containerStyles from '@src/styleUtils/modules/containers.module.scss';
 import SocialMediaLinks from '@src/components/SocialMediaLinks';
 import cn from 'classnames';
 import Container from '@src/components/Container';

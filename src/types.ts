@@ -2,7 +2,7 @@ export enum Colors {
   SpaceBlack = '#1f2324',
   StarYellow = '#ffd71d',
   EarthBlue = '#00a2ff',
-  MoonRock = '#4c4f50',
+  MoonRock = '#95999a',
   GalaxyWhite = '#f1f2f2',
   OffWhite = '#feffff',
 }

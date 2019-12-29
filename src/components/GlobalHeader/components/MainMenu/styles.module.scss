@@ -1,0 +1,34 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+.menu {
+  margin: 0;
+}
+
+.menu-item {
+  display: inline-block;
+  margin-right: rem(32);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.link {
+  @include clean-spacing(padding, $top: rem(8), $bottom: rem(8));
+  font-size: rem(14);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: rem(3);
+  color: palette('moon-rock');
+
+  @include bp(medium) {
+    @include clean-spacing(padding, $top: rem(10), $bottom: rem(10));
+  }
+
+  &:hover,
+  &:focus {
+    color: palette('star-yellow');
+    text-decoration: none;
+  }
+}
