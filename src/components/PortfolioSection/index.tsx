@@ -5,11 +5,12 @@ import cn from 'classnames';
 import Container from '../Container';
 import StackBadgeCollection from '../StackBadge/components/StackBadgeCollection';
 import componentStyles from './styles.module.scss';
+import { StackItem } from '@src/types';
 
 interface Props {
   title: string;
   website: string;
-  stack: string[];
+  stack: StackItem[];
   content: string;
   theme?: PagePanelTheme;
 }
@@ -19,7 +20,7 @@ const PortfolioSection: React.FC<Props> = ({
   website,
   stack,
   content,
-  theme,
+  theme = 'white',
 }) => {
   const [scrolledTo, setScrolledTo] = useState(false);
   const handleEnter = () => {
@@ -36,6 +37,7 @@ const PortfolioSection: React.FC<Props> = ({
           <div className={teaserClasses}>
             <StackBadgeCollection
               stack={stack}
+              backgroundTheme={theme}
               className={componentStyles.stack}
             />
             <h2>{title}</h2>

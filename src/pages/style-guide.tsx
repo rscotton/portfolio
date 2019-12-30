@@ -6,6 +6,7 @@ import StackBadgeCollection from '@src/components/StackBadge/components/StackBad
 import GlobalFooter from '@src/components/GlobalFooter';
 import PagePanel from '@src/components/PagePanel';
 import Container from '@src/components/Container';
+import { StackItem } from '@src/types';
 
 const StyleGuidePage: React.FC = () => {
   const stackQuery = useStaticQuery(graphql`
@@ -22,14 +23,14 @@ const StyleGuidePage: React.FC = () => {
     }
   `);
   const allStack = stackQuery.allMarkdownRemark.edges.reduce(
-    (allStackItems: string[], queryResult: any) =>
+    (allStackItems: StackItem[], queryResult: any) =>
       (allStackItems = [
         ...allStackItems,
         ...queryResult.node.frontmatter.stack,
       ]),
     []
   );
-  const flatStack: string[] = [...new Set<string>(allStack)];
+  const flatStack: StackItem[] = [...new Set<StackItem>(allStack)];
 
   return (
     <div className="layout layout-page">

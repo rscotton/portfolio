@@ -11,8 +11,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: rem(6);
+  padding: rem(5);
   width: rem(100);
+  border: 1px solid;
   border-radius: rem(16);
 
   &-php,
@@ -38,3 +39,15 @@
   $class: 'badge',
   $colorMap: map-get($colors, 'stack')
 );
+
+// Apply corresponding border color to each badge
+@include color-loop(
+  $prop: border-color,
+  $class: 'badge',
+  $colorMap: map-get($colors, 'stack')
+);
+
+// Override blended border color when necessary for contrast with background
+.badge-with-border {
+  border-color: currentColor;
+}

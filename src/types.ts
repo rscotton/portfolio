@@ -18,6 +18,17 @@ export interface SocialMediaNode {
   href: string;
 }
 
+export type StackItem =
+  | 'php'
+  | 'javascript'
+  | 'wordpress'
+  | 'sass'
+  | 'twig'
+  | 'drupal'
+  | 'symfony'
+  | 'angular'
+  | 'doctrine';
+
 export interface PortfolioItemNode {
   frontmatter: {
     published: boolean;
@@ -26,7 +37,7 @@ export interface PortfolioItemNode {
     title: string;
     website: string;
     description: string;
-    stack: string[];
+    stack: StackItem[];
   };
   html: string;
 }

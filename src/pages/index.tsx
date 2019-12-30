@@ -37,7 +37,7 @@ const IndexPage: React.FC = () => {
           I create web apps &amp; experiences for businesses big and small
           across the country and beyond.
         </GlobalHeader>
-        <PagePanel name="bio">
+        <PagePanel name="biography">
           <Container>
             <h2>Biography</h2>
             <div style={{ maxWidth: '300px' }}>
