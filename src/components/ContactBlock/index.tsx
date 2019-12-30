@@ -6,6 +6,7 @@ import { serialize } from '@src/utils/helpers';
 const ContactBlock: React.FC = () => {
   const formName = 'contact-form';
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // Netlify Ajax form handling: https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const fetchOptions: RequestInit = {
@@ -14,9 +15,7 @@ const ContactBlock: React.FC = () => {
       method: 'POST',
     };
 
-    console.log(fetchOptions);
-
-    fetch('/', fetchOptions)
+    fetch(form.action, fetchOptions)
       .then(() => {
         alert("Thanks for reaching out! I'll be in touch soon =)");
         form.reset();
@@ -31,6 +30,7 @@ const ContactBlock: React.FC = () => {
         <form
           name={formName}
           method="post"
+          action="/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
