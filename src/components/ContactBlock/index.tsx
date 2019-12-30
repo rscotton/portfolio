@@ -4,7 +4,7 @@ import Container from '../Container';
 import { serialize } from '@src/utils/helpers';
 
 const ContactBlock: React.FC = () => {
-  const formId = 'contact-form';
+  const formName = 'contact-form';
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -24,24 +24,25 @@ const ContactBlock: React.FC = () => {
       <Container>
         <h2>Let's Collaborate</h2>
         <form
-          id={formId}
-          name={formId}
-          method="POST"
+          name={formName}
+          method="post"
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
         >
           <p>
-            <label htmlFor={`${formId}-email`}>Your Email:</label>
+            <label htmlFor={`${formName}-email`}>Your Email:</label>
             <input
-              id={`${formId}-email`}
+              id={`${formName}-email`}
               type="email"
-              name={`${formId}-email`}
+              name={`${formName}-email`}
               placeholder="Email"
               required
             />
           </p>
+          <input type="hidden" name="form-name" value={formName} />
           <p>
-            <input id={`${formId}-submit`} type="submit" />
+            <input id={`${formName}-submit`} type="submit" />
           </p>
         </form>
       </Container>
