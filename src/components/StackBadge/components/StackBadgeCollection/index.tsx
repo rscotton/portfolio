@@ -1,22 +1,24 @@
 import React from 'react';
-import StackBadge, { StackItem } from 'src/components/StackBadge';
+import StackBadge from 'src/components/StackBadge';
 import cn from 'classnames';
 import componentStyles from './styles.module.scss';
 import listStyles from '@src/styleUtils/modules/lists.module.scss';
 import { PagePanelTheme } from '@src/components/PagePanel';
 import { slugify } from '@src/utils/helpers';
+import { StackItem } from '@src/types';
 
 interface Props extends React.HTMLAttributes<HTMLUListElement> {
   stack: StackItem[];
-  backgroundTheme: PagePanelTheme;
+  backgroundTheme?: PagePanelTheme;
 }
 
 const StackBadgeCollection: React.FC<Props> = ({
   stack,
-  backgroundTheme,
+  backgroundTheme = 'white',
   className,
   ...rest
 }) => {
+  // Account for selective border application for contrast when badge colors match background theme
   const stackItemBorderMap: { [K in StackItem]?: boolean } = {};
 
   switch (backgroundTheme) {
@@ -27,8 +29,6 @@ const StackBadgeCollection: React.FC<Props> = ({
       stackItemBorderMap.javascript = true;
       break;
   }
-
-  console.log(stackItemBorderMap);
 
   return (
     <ul
@@ -43,7 +43,9 @@ const StackBadgeCollection: React.FC<Props> = ({
         <li key={stackItem} className={componentStyles['collection-item']}>
           <StackBadge
             stackItem={stackItem}
-            includeBorder={stackItemBorderMap[slugify(stackItem)]}
+            includeBorder={
+              !!stackItemBorderMap[slugify(stackItem) as StackItem]
+            }
           />
         </li>
       ))}

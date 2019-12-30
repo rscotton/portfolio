@@ -8,6 +8,7 @@ import GlobalFooter from '@src/components/GlobalFooter';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import Container from '@src/components/Container';
+import ContactBlock from '@src/components/ContactBlock';
 
 const IndexPage: React.FC = () => {
   const headshot = useStaticQuery(graphql`
@@ -48,7 +49,6 @@ const IndexPage: React.FC = () => {
                 title="It me."
               />
             </div>
-
             <SocialMediaLinks />
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
@@ -59,16 +59,7 @@ const IndexPage: React.FC = () => {
           </Container>
         </PagePanel>
         <PortfolioItems />
-        <PagePanel name="contact">
-          <Container>
-            <h2>Contact</h2>
-            <p>
-              Hit me up at{' '}
-              <a href="mailto:email@example.com">email@example.com</a> and talk
-              nerdy to me.
-            </p>
-          </Container>
-        </PagePanel>
+        <ContactBlock />
         <GlobalFooter />
       </div>
     </>
