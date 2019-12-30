@@ -10,13 +10,18 @@ const ContactBlock: React.FC = () => {
     const form = e.target as HTMLFormElement;
     const fetchOptions: RequestInit = {
       body: serialize(form),
-      method: 'post',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
     };
 
-    fetch(form.action, fetchOptions).then(() => {
-      alert("Thanks for reaching out! I'll be in touch soon =)");
-      form.reset();
-    });
+    console.log(fetchOptions);
+
+    fetch('/', fetchOptions)
+      .then(() => {
+        alert("Thanks for reaching out! I'll be in touch soon =)");
+        form.reset();
+      })
+      .catch(error => alert(error));
   };
 
   return (
