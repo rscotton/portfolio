@@ -1,14 +1,17 @@
 import { Waypoint } from 'react-waypoint';
-import PagePanel from 'src/components/PagePanel';
+import PagePanel, { PagePanelTheme } from 'src/components/PagePanel';
 import React, { useState } from 'react';
 import cn from 'classnames';
 import Container from '../Container';
+import StackBadgeCollection from '../StackBadge/components/StackBadgeCollection';
+import componentStyles from './styles.module.scss';
 
 interface Props {
   title: string;
   website: string;
   stack: string[];
   content: string;
+  theme?: PagePanelTheme;
 }
 
 const PortfolioSection: React.FC<Props> = ({
@@ -16,6 +19,7 @@ const PortfolioSection: React.FC<Props> = ({
   website,
   stack,
   content,
+  theme,
 }) => {
   const [scrolledTo, setScrolledTo] = useState(false);
   const handleEnter = () => {
@@ -26,11 +30,19 @@ const PortfolioSection: React.FC<Props> = ({
   const teaserClasses = cn('portfolio-teaser', scrolledTo && 'animate');
 
   return (
-    <PagePanel name={`portfolio-item-${title}`}>
+    <PagePanel theme={theme} name={`portfolio-item-${title}`}>
       <Waypoint bottomOffset="50px" onEnter={handleEnter}>
         <Container>
           <div className={teaserClasses}>
-            <h3>{title}</h3>
+            <StackBadgeCollection
+              stack={stack}
+              className={componentStyles.stack}
+            />
+            <h2>{title}</h2>
+            <div
+              className="description"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
             <a
               className="meta meta-website"
               href={website}
@@ -39,20 +51,6 @@ const PortfolioSection: React.FC<Props> = ({
             >
               {website}
             </a>
-            <div className="meta meta-stack">
-              <h5>Stack:</h5>
-              <ul className="stack">
-                {stack.map(stackItem => (
-                  <li key={stackItem} className="stackItem">
-                    {stackItem}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
           </div>
         </Container>
       </Waypoint>

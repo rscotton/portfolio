@@ -38,4 +38,12 @@
   &-light {
     color: palette('galaxy-white');
   }
+
+  // Apply brand colors on hover/focus
+  @each $key, $color in map-get($colors, 'social') {
+    &-#{$key}:hover,
+    &-#{$key}:focus {
+      color: $color;
+    }
+  }
 }

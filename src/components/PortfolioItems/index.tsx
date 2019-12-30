@@ -13,6 +13,7 @@ const PortfolioItems: React.FC = () => {
         edges {
           node {
             frontmatter {
+              theme
               path
               title
               website

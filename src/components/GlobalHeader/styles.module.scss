@@ -13,7 +13,48 @@ $section-padding: rem(64);
   color: palette('galaxy-white');
 }
 
+.space-man {
+  position: absolute;
+  width: rem(445);
+  bottom: calc(-#{$section-padding} - 30px);
+  right: rem(-100);
+  z-index: z(1);
+  max-width: none;
+  line-height: 0;
+
+  &-inner {
+    position: relative;
+
+    @include bp(large) {
+      &:after {
+        content: '';
+        position: absolute;
+        top: rem(460);
+        left: 100%;
+        bottom: 0;
+        display: block;
+        width: 100vw;
+        background-color: palette('off-white');
+      }
+    }
+  }
+
+  @include bp(medium) {
+    width: rem(550);
+    bottom: calc(-#{$section-padding} - 37px);
+    right: rem(-165);
+  }
+
+  @include bp(large) {
+    width: rem(640);
+    bottom: calc(-#{$section-padding} - 43px);
+  }
+}
+
 .nav-wrap {
+  position: relative;
+  z-index: z(2);
+
   @include bp(medium) {
     display: flex;
     align-items: flex-end;
@@ -21,12 +62,12 @@ $section-padding: rem(64);
   }
 
   @include bp(large) {
-    width: percentage(4/5);
+    width: percentage(7/12);
   }
 
-  @include bp(max) {
-    width: percentage(2/3);
-  }
+  // @include bp(max) {
+  //   width: percentage(2/3);
+  // }
 }
 
 .home-link {
@@ -44,21 +85,30 @@ $section-padding: rem(64);
   }
 }
 
-.hero {
+.hero-container {
+  position: relative;
   padding-top: rem(60);
+  padding-bottom: rem(200);
 
   @include bp(medium) {
     @include clean-spacing(padding, $top: rem(120), $bottom: rem(160));
   }
+
+  @include bp(medium) {
+    padding-bottom: calc(100px - #{$section-padding});
+  }
 }
 
 .content-wrap {
-  @include bp(medium) {
-    width: 60%;
-  }
+  position: relative;
+  z-index: z(2);
 
   @include bp(medium) {
-    width: 100%;
+    width: percentage(2/3);
+  }
+
+  @include bp(large) {
+    width: percentage(5/6);
   }
 }
 

@@ -1,9 +1,11 @@
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import MainMenu from '@src/components/GlobalHeader/components/MainMenu';
 import React from 'react';
 import Container from '../Container';
 import componentStyles from './styles.module.scss';
 import cn from 'classnames';
+import Img from 'gatsby-image';
+import spaceMan from '@src/data/img/space-man.png';
 
 interface Props {
   title: string;
@@ -12,6 +14,19 @@ interface Props {
 }
 
 const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
+  // const spaceMan = useStaticQuery(graphql`
+  //   query {
+  //     file(relativePath: { eq: "img/space-man.png" }) {
+  //       childImageSharp {
+  //         # Specify a fluid image and fragment
+  //         # The default maxWidth is 800 pixels
+  //         fluid(maxWidth: 794) {
+  //           ...GatsbyImageSharpFluid_withWebp_tracedSVG
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
   let titleBlocks: React.ReactNode;
 
   if (bigTitle) {
@@ -41,10 +56,15 @@ const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
         </Container>
       </header>
       <section className={componentStyles.hero}>
-        <Container>
+        <Container className={componentStyles['hero-container']}>
           <div className={componentStyles['content-wrap']}>
             {titleBlocks}
             <div className={componentStyles.body}>{children}</div>
+          </div>
+          <div className={componentStyles['space-man']}>
+            <div className={componentStyles['space-man-inner']}>
+              <img src={spaceMan} alt="" />
+            </div>
           </div>
         </Container>
       </section>

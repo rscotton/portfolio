@@ -8,7 +8,6 @@ import GlobalFooter from '@src/components/GlobalFooter';
 import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import Container from '@src/components/Container';
-import { Colors } from '@src/types';
 
 const IndexPage: React.FC = () => {
   const headshot = useStaticQuery(graphql`
@@ -17,7 +16,7 @@ const IndexPage: React.FC = () => {
         childImageSharp {
           # Specify a fluid image and fragment
           # The default maxWidth is 800 pixels
-          fluid(traceSVG: { color: "#4c4f50" }) {
+          fluid(maxWidth: 300, traceSVG: { color: "#4c4f50" }) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
@@ -41,12 +40,15 @@ const IndexPage: React.FC = () => {
         <PagePanel name="bio">
           <Container>
             <h2>Biography</h2>
-            <Img
-              fluid={headshot.file.childImageSharp.fluid}
-              className="avatar"
-              alt="It me."
-              title="It me."
-            />
+            <div style={{ maxWidth: '300px' }}>
+              <Img
+                fluid={headshot.file.childImageSharp.fluid}
+                className="avatar"
+                alt="It me."
+                title="It me."
+              />
+            </div>
+
             <SocialMediaLinks />
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
