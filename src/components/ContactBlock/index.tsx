@@ -1,10 +1,27 @@
-import React, { ReactNode, useRef } from 'react';
+import React, { useRef } from 'react';
 import PagePanel from '../PagePanel';
 import Container from '../Container';
 import { serialize } from '@src/utils/helpers';
+import componentStyles from './styles.module.scss';
+import cn from 'classnames';
 
 const ContactBlock: React.FC = () => {
   const formName = 'contact-form';
+  const formInputEmailRef = useRef<HTMLInputElement>(null);
+  const handleInputChange = () => {
+    const formInput = formInputEmailRef.current;
+
+    if (formInput) {
+      const isEmpty = !!formInput.value;
+      const nonEmptyClass = componentStyles['non-empty'];
+
+      if (isEmpty) {
+        formInput.classList.add(nonEmptyClass);
+      } else {
+        formInput.classList.remove(nonEmptyClass);
+      }
+    }
+  };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     // Netlify Ajax form handling: https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
     e.preventDefault();
@@ -24,9 +41,9 @@ const ContactBlock: React.FC = () => {
   };
 
   return (
-    <PagePanel name="contact">
+    <PagePanel name="contact" theme="black">
       <Container>
-        <h2>Let's Collaborate</h2>
+        <h2 className={componentStyles.title}>Let's Collaborate</h2>
         <form
           name={formName}
           method="post"
@@ -34,20 +51,32 @@ const ContactBlock: React.FC = () => {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
+          className={componentStyles.form}
         >
-          <p>
-            <label htmlFor={`${formName}-email`}>Your Email:</label>
+          <p className={componentStyles['form-item']}>
             <input
+              ref={formInputEmailRef}
               id={`${formName}-email`}
               type="email"
               name={`${formName}-email`}
-              placeholder="Email"
+              className={componentStyles['form-input']}
+              onChange={handleInputChange}
               required
             />
+            <label
+              className={componentStyles['form-label']}
+              htmlFor={`${formName}-email`}
+            >
+              Email
+            </label>
           </p>
           <input type="hidden" name="form-name" value={formName} />
           <p>
-            <input id={`${formName}-submit`} type="submit" />
+            <input
+              id={`${formName}-submit`}
+              type="submit"
+              className={componentStyles['form-submit']}
+            />
           </p>
         </form>
       </Container>

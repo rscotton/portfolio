@@ -1,0 +1,49 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+.title {
+  text-transform: lowercase;
+}
+
+.form {
+  &-item {
+    position: relative;
+    margin-top: rem(24);
+  }
+
+  &-label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-weight: 500;
+    transition: transition(transform, 150ms);
+  }
+
+  &-input {
+    border: 0;
+    border-bottom: 2px solid palette('galaxy-white');
+    padding: rem(12) rem(100) rem(12) 0;
+    background-color: transparent;
+    color: palette('galaxy-white');
+
+    &.non-empty ~ .form-label,
+    &:focus ~ .form-label {
+      transform: scale(0.9) translateY(-175%);
+    }
+  }
+
+  &-submit {
+    border: 0;
+    padding: rem(12) rem(24);
+    font-size: rem(18);
+    background-color: palette('star-yellow');
+    cursor: pointer;
+    transition: transition(background-color), transition(color);
+
+    &:hover,
+    &:focus {
+      background-color: palette('earth-blue');
+      color: palette('galaxy-white');
+    }
+  }
+}
