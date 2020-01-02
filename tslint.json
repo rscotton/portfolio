@@ -10,6 +10,7 @@
     "no-var-requires": false,
     "quotemark": [true, "single", "jsx-double"],
     "arrow-parens": false,
+    "max-line-length": false,
     "trailing-comma": [
       true,
       {

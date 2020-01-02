@@ -1,8 +1,8 @@
 import React from 'react';
-import componentStyles from './styles.module.scss';
-import SocialMediaLinks from '@src/components/SocialMediaLinks';
 import cn from 'classnames';
-import Container from '@src/components/Container';
+import Container from '@components/Container';
+import SocialMediaLinks from '@components/SocialMediaLinks';
+import componentStyles from './styles.module.scss';
 
 const GlobalFooter: React.FC = () => (
   <footer aria-label="Site Footer" className={componentStyles.footer}>

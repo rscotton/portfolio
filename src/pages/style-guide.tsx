@@ -1,12 +1,13 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import GlobalHeader from '@src/components/GlobalHeader';
 import React from 'react';
-import SocialMediaLinks from '@src/components/SocialMediaLinks';
-import StackBadgeCollection from '@src/components/StackBadge/components/StackBadgeCollection';
-import GlobalFooter from '@src/components/GlobalFooter';
-import PagePanel from '@src/components/PagePanel';
-import Container from '@src/components/Container';
+import { graphql, useStaticQuery } from 'gatsby';
 import { StackItem } from '@src/types';
+import GlobalHeader from '@components/GlobalHeader';
+import SocialMediaLinks from '@components/SocialMediaLinks';
+import StackBadgeCollection from '@components/StackBadge/components/StackBadgeCollection';
+import GlobalFooter from '@components/GlobalFooter';
+import PagePanel from '@components/PagePanel';
+import Container from '@components/Container';
+import PageLayout from '@src/components/PageLayout';
 
 const StyleGuidePage: React.FC = () => {
   const stackQuery = useStaticQuery(graphql`
@@ -33,7 +34,7 @@ const StyleGuidePage: React.FC = () => {
   const flatStack: StackItem[] = [...new Set<StackItem>(allStack)];
 
   return (
-    <div className="layout layout-page">
+    <PageLayout>
       <GlobalHeader title="style guide." />
       <PagePanel name="style-guide">
         <Container>
@@ -74,7 +75,7 @@ const StyleGuidePage: React.FC = () => {
         </Container>
       </PagePanel>
       <GlobalFooter />
-    </div>
+    </PageLayout>
   );
 };
 

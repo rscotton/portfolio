@@ -1,8 +1,8 @@
-import { slugify } from '@src/utils/helpers';
 import React from 'react';
 import cn from 'classnames';
-import componentStyles from './styles.module.scss';
+import { slugify } from '@src/utils/helpers';
 import { StackItem } from '@src/types';
+import componentStyles from './styles.module.scss';
 
 interface Props {
   stackItem: StackItem;

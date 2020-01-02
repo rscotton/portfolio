@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
-import PagePanel from '../PagePanel';
-import Container from '../Container';
 import { serialize } from '@src/utils/helpers';
+import PagePanel from '@components/PagePanel';
+import Container from '@components/Container';
 import componentStyles from './styles.module.scss';
-import cn from 'classnames';
 
 const ContactBlock: React.FC = () => {
   const formName = 'contact-form';
@@ -12,10 +11,10 @@ const ContactBlock: React.FC = () => {
     const formInput = formInputEmailRef.current;
 
     if (formInput) {
-      const isEmpty = !!formInput.value;
+      const isNonEmpty = !!formInput.value;
       const nonEmptyClass = componentStyles['non-empty'];
 
-      if (isEmpty) {
+      if (isNonEmpty) {
         formInput.classList.add(nonEmptyClass);
       } else {
         formInput.classList.remove(nonEmptyClass);

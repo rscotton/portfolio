@@ -1,9 +1,9 @@
-import { Link, useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import cn from 'classnames';
 import { MenuItemNode } from '@src/types';
 import listStyles from '@src/styleUtils/modules/lists.module.scss';
 import componentStyles from './styles.module.scss';
-import cn from 'classnames';
 
 const GlobalHeader: React.FC = () => {
   const mainMenuQuery = useStaticQuery(graphql`

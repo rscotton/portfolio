@@ -1,14 +1,15 @@
-import { Helmet } from 'react-helmet';
-import GlobalHeader from '@src/components/GlobalHeader';
-import PagePanel from '@src/components/PagePanel';
-import PortfolioItems from '@src/components/PortfolioItems';
 import React from 'react';
-import SocialMediaLinks from '@src/components/SocialMediaLinks';
-import GlobalFooter from '@src/components/GlobalFooter';
-import Img from 'gatsby-image';
 import { useStaticQuery, graphql } from 'gatsby';
-import Container from '@src/components/Container';
-import ContactBlock from '@src/components/ContactBlock';
+import { Helmet } from 'react-helmet';
+import Img from 'gatsby-image';
+import GlobalHeader from '@components/GlobalHeader';
+import PagePanel from '@components/PagePanel';
+import PortfolioItems from '@components/PortfolioItems';
+import SocialMediaLinks from '@components/SocialMediaLinks';
+import GlobalFooter from '@components/GlobalFooter';
+import Container from '@components/Container';
+import ContactBlock from '@components/ContactBlock';
+import PageLayout from '@src/components/PageLayout';
 
 const IndexPage: React.FC = () => {
   const headshot = useStaticQuery(graphql`
@@ -33,7 +34,7 @@ const IndexPage: React.FC = () => {
         <meta name="description" content="hi. i'm ryan. i do codes." />
         <meta name="theme-color" content="#1f2324" />
       </Helmet>
-      <div className="layout layout-page">
+      <PageLayout>
         <GlobalHeader bigTitle="Hello world." title="I write code.">
           I create web apps &amp; experiences for businesses big and small
           across the country and beyond.
@@ -61,7 +62,7 @@ const IndexPage: React.FC = () => {
         <PortfolioItems />
         <ContactBlock />
         <GlobalFooter />
-      </div>
+      </PageLayout>
     </>
   );
 };

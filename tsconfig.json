@@ -11,7 +11,10 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@src/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@data/*": ["src/data/*"],
+      "@img/*": ["src/data/img/*"]
     }
   },
   "include": ["./src/**/*"]

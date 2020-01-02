@@ -1,11 +1,11 @@
 import React from 'react';
-import StackBadge from 'src/components/StackBadge';
 import cn from 'classnames';
-import componentStyles from './styles.module.scss';
-import listStyles from '@src/styleUtils/modules/lists.module.scss';
-import { PagePanelTheme } from '@src/components/PagePanel';
 import { slugify } from '@src/utils/helpers';
 import { StackItem } from '@src/types';
+import { PagePanelTheme } from '@components/PagePanel';
+import StackBadge from '@components/StackBadge';
+import listStyles from '@src/styleUtils/modules/lists.module.scss';
+import componentStyles from './styles.module.scss';
 
 interface Props extends React.HTMLAttributes<HTMLUListElement> {
   stack: StackItem[];

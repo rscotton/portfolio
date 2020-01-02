@@ -1,13 +1,23 @@
-import React, { ReactNode } from 'react';
-import componentStyles from './styles.module.scss';
+import React from 'react';
 import cn from 'classnames';
+import componentStyles from './styles.module.scss';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
+export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+  innerRef?: React.Ref<HTMLDivElement>;
+  children: React.ReactNode;
 }
 
-const Container: React.FC<Props> = ({ children, className, ...rest }) => (
-  <div className={cn(className, componentStyles.container)} {...rest}>
+const Container: React.FC<ContainerProps> = ({
+  innerRef,
+  children,
+  className,
+  ...rest
+}) => (
+  <div
+    ref={innerRef}
+    className={cn(className, componentStyles.container)}
+    {...rest}
+  >
     {children}
   </div>
 );

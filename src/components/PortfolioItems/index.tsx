@@ -1,7 +1,7 @@
-import { useStaticQuery, graphql } from 'gatsby';
-import PortfolioSection from '@src/components/PortfolioSection';
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { StackItem, PortfolioItemNode } from '@src/types';
+import PortfolioSection from '@components/PortfolioSection';
 
 const PortfolioItems: React.FC = () => {
   const portfolioItemsQuery = useStaticQuery(graphql`

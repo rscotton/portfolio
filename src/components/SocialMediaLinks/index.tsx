@@ -1,12 +1,12 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import { slugify } from 'src/utils/helpers';
-import Icon from '@src/components/Icon';
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import cn from 'classnames';
-import componentStyles from './styles.module.scss';
+import { slugify } from '@src/utils/helpers';
+import { SocialMediaNode } from '@src/types';
+import Icon from '@src/components/Icon';
 import listStyles from '@src/styleUtils/modules/lists.module.scss';
 import visibilityStyles from '@src/styleUtils/modules/visibility.module.scss';
-import { SocialMediaNode } from '@src/types';
+import componentStyles from './styles.module.scss';
 
 interface Props {
   theme?: 'dark' | 'light';

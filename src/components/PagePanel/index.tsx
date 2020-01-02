@@ -1,7 +1,7 @@
-import { slugify } from '@src/utils/helpers';
 import React from 'react';
-import componentStyles from './styles.module.scss';
 import cn from 'classnames';
+import { slugify } from '@src/utils/helpers';
+import componentStyles from './styles.module.scss';
 
 export type PagePanelTheme = 'white' | 'black' | 'blue' | 'yellow';
 

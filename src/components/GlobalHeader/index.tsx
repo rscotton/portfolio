@@ -1,11 +1,11 @@
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import MainMenu from '@src/components/GlobalHeader/components/MainMenu';
 import React from 'react';
-import Container from '../Container';
-import componentStyles from './styles.module.scss';
+import { Link } from 'gatsby';
 import cn from 'classnames';
 import Img from 'gatsby-image';
-import spaceMan from '@src/data/img/space-man.png';
+import Container from '@components/Container';
+import MainMenu from '@components/GlobalHeader/components/MainMenu';
+import spaceMan from '@img/space-man.png';
+import componentStyles from './styles.module.scss';
 
 interface Props {
   title: string;

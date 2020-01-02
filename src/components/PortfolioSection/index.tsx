@@ -1,11 +1,11 @@
-import { Waypoint } from 'react-waypoint';
-import PagePanel, { PagePanelTheme } from 'src/components/PagePanel';
 import React, { useState } from 'react';
+import { Waypoint } from 'react-waypoint';
 import cn from 'classnames';
-import Container from '../Container';
-import StackBadgeCollection from '../StackBadge/components/StackBadgeCollection';
-import componentStyles from './styles.module.scss';
 import { StackItem } from '@src/types';
+import Container, { ContainerProps } from '@components/Container';
+import PagePanel, { PagePanelTheme } from '@components/PagePanel';
+import StackBadgeCollection from '@components/StackBadge/components/StackBadgeCollection';
+import componentStyles from './styles.module.scss';
 
 interface Props {
   title: string;
@@ -15,6 +15,13 @@ interface Props {
   theme?: PagePanelTheme;
 }
 
+// https://github.com/civiccc/react-waypoint#children
+export const ContainerWithRef = React.forwardRef(
+  (props: ContainerProps, ref: React.Ref<HTMLDivElement>) => (
+    <Container innerRef={ref} {...props} />
+  )
+);
+
 const PortfolioSection: React.FC<Props> = ({
   title,
   website,
@@ -22,9 +29,11 @@ const PortfolioSection: React.FC<Props> = ({
   content,
   theme = 'white',
 }) => {
-  const [scrolledTo, setScrolledTo] = useState(false);
+  const [scrolledTo, setScrolledTo] = useState<boolean>(false);
+  // TODO: Why isn't Waypoint working?
   const handleEnter = () => {
     if (!scrolledTo) {
+      console.log(`scrolled to ${title}`);
       setScrolledTo(true);
     }
   };
@@ -33,7 +42,7 @@ const PortfolioSection: React.FC<Props> = ({
   return (
     <PagePanel theme={theme} name={`portfolio-item-${title}`}>
       <Waypoint bottomOffset="50px" onEnter={handleEnter}>
-        <Container>
+        <ContainerWithRef>
           <div className={teaserClasses}>
             <StackBadgeCollection
               stack={stack}
@@ -54,7 +63,7 @@ const PortfolioSection: React.FC<Props> = ({
               {website}
             </a>
           </div>
-        </Container>
+        </ContainerWithRef>
       </Waypoint>
     </PagePanel>
   );
