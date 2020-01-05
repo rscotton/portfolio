@@ -6,6 +6,7 @@ import Container from '@components/Container';
 import MainMenu from '@components/GlobalHeader/components/MainMenu';
 import spaceMan from '@img/space-man.png';
 import componentStyles from './styles.module.scss';
+import Grid, { Col } from '@components/Grid';
 
 interface Props {
   title: string;
@@ -43,30 +44,38 @@ const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
   return (
     <div className={componentStyles['hero-wrap']}>
       <header className={componentStyles.header}>
-        <Container>
-          <div className={componentStyles['nav-wrap']}>
+        <Grid
+          className={componentStyles['nav-wrap-grid']}
+          rowClassName={componentStyles['nav-wrap-grid-row']}
+        >
+          <Col xs={12} mdAuto xl={3}>
             <Link to="/" className={cn('h3', componentStyles['home-link'])}>
               Ryan Scotton
             </Link>
-
-            <nav className="nav-primary">
+          </Col>
+          <Col xs={12} mdAuto lg={6} xl={4}>
+            <nav aria-label="Main Menu" className={componentStyles.nav}>
               <MainMenu />
             </nav>
-          </div>
-        </Container>
+          </Col>
+        </Grid>
       </header>
       <section className={componentStyles.hero}>
-        <Container className={componentStyles['hero-container']}>
-          <div className={componentStyles['content-wrap']}>
-            {titleBlocks}
-            <div className={componentStyles.body}>{children}</div>
-          </div>
-          <div className={componentStyles['space-man']}>
-            <div className={componentStyles['space-man-inner']}>
-              <img src={spaceMan} alt="" />
+        <div className={componentStyles['hero-container']}>
+          <Grid>
+            <Col md={8} xlOffset={2}>
+              <div className={componentStyles['content-wrap']}>
+                {titleBlocks}
+                <div className={componentStyles.body}>{children}</div>
+              </div>
+            </Col>
+            <div className={componentStyles['space-man']}>
+              <div className={componentStyles['space-man-inner']}>
+                <img src={spaceMan} alt="" />
+              </div>
             </div>
-          </div>
-        </Container>
+          </Grid>
+        </div>
       </section>
     </div>
   );

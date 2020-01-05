@@ -12,6 +12,10 @@ interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   md?: GridColumnWidth;
   lg?: GridColumnWidth;
   xl?: GridColumnWidth;
+  smAuto?: boolean;
+  mdAuto?: boolean;
+  lgAuto?: boolean;
+  xlAuto?: boolean;
   xsOffset?: GridColumnOffset;
   smOffset?: GridColumnOffset;
   mdOffset?: GridColumnOffset;
@@ -25,11 +29,16 @@ export const Col: React.FC<ColProps> = ({
   md,
   lg,
   xl,
+  smAuto,
+  mdAuto,
+  lgAuto,
+  xlAuto,
   xsOffset,
   smOffset,
   mdOffset,
   lgOffset,
   xlOffset,
+  className,
   children,
   ...rest
 }) => {
@@ -37,6 +46,15 @@ export const Col: React.FC<ColProps> = ({
   const colClasses = cn(
     componentStyles['col-base'],
     colOnly && componentStyles.col,
+    smAuto && componentStyles[`col-sm-auto`],
+    mdAuto && componentStyles[`col-md-auto`],
+    lgAuto && componentStyles[`col-lg-auto`],
+    xlAuto && componentStyles[`col-xl-auto`],
+    typeof xsOffset !== undefined && componentStyles[`offset-${xsOffset}`],
+    typeof smOffset !== undefined && componentStyles[`offset-sm-${smOffset}`],
+    typeof mdOffset !== undefined && componentStyles[`offset-md-${mdOffset}`],
+    typeof lgOffset !== undefined && componentStyles[`offset-lg-${lgOffset}`],
+    typeof xlOffset !== undefined && componentStyles[`offset-xl-${xlOffset}`],
     xs && componentStyles[`col-${xs}`],
     sm && componentStyles[`col-sm-${sm}`],
     md && componentStyles[`col-md-${md}`],
@@ -46,7 +64,8 @@ export const Col: React.FC<ColProps> = ({
     typeof smOffset !== undefined && componentStyles[`offset-sm-${smOffset}`],
     typeof mdOffset !== undefined && componentStyles[`offset-md-${mdOffset}`],
     typeof lgOffset !== undefined && componentStyles[`offset-lg-${lgOffset}`],
-    typeof xlOffset !== undefined && componentStyles[`offset-xl-${xlOffset}`]
+    typeof xlOffset !== undefined && componentStyles[`offset-xl-${xlOffset}`],
+    className
   );
 
   return (
@@ -58,12 +77,23 @@ export const Col: React.FC<ColProps> = ({
 
 interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   fluid?: boolean;
+  rowClassName?: string;
 }
 
-const Grid: React.FC<GridProps> = ({ fluid = false, children, ...rest }) => {
+const Grid: React.FC<GridProps> = ({
+  fluid = false,
+  rowClassName,
+  className,
+  children,
+  ...rest
+}) => {
   return (
-    <Container fluid={fluid} className={componentStyles.container} {...rest}>
-      <div className={componentStyles.row}>{children}</div>
+    <Container
+      fluid={fluid}
+      className={cn(componentStyles.container, className)}
+      {...rest}
+    >
+      <div className={cn(componentStyles.row, rowClassName)}>{children}</div>
     </Container>
   );
 };

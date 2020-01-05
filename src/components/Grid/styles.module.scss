@@ -44,6 +44,12 @@ $breakpoint-class-map: (
     $bp-class: map-get($breakpoint-class-map, $bp);
 
     @include bp($bp) {
+      &-#{$bp-class}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+      }
+
       @each $size in $column-sizes {
         &-#{$bp-class}-#{$size} {
           flex: 0 0 percentage($size / 12);
