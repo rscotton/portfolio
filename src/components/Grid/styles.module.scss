@@ -1,0 +1,54 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+$gutter-size: rem(20);
+$column-sizes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+$breakpoint-class-map: (
+  'small': 'sm',
+  'medium': 'md',
+  'large': 'lg',
+  'max': 'xl',
+);
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gutter-size;
+  margin-right: -$gutter-size;
+}
+
+.col {
+  // All columns (base)
+  &-base {
+    position: relative;
+    padding-left: $gutter-size;
+    padding-right: $gutter-size;
+    width: 100%;
+    min-height: 1px;
+  }
+
+  // Auto-fill column sizing
+  flex-basis: 0;
+  flex-grow: 1;
+
+  // All xs column sizing
+  @each $size in $column-sizes {
+    &-#{$size} {
+      flex: 0 0 percentage($size / 12);
+      max-width: percentage($size / 12);
+    }
+  }
+
+  // All other breakpoint column sizing
+  @each $bp in $screen-size-list {
+    $bp-class: map-get($breakpoint-class-map, $bp);
+
+    @include bp($bp) {
+      @each $size in $column-sizes {
+        &-#{$bp-class}-#{$size} {
+          flex: 0 0 percentage($size / 12);
+          max-width: percentage($size / 12);
+        }
+      }
+    }
+  }
+}

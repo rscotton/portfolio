@@ -1,10 +1,19 @@
-export enum Colors {
+export enum Color {
   SpaceBlack = '#1f2324',
   StarYellow = '#ffd71d',
   EarthBlue = '#00a2ff',
   MoonRock = '#95999a',
   GalaxyWhite = '#f1f2f2',
   OffWhite = '#feffff',
+}
+
+export type ScreenSize = 'small' | 'medium' | 'large' | 'max';
+
+export enum Breakpoint {
+  Small = 400,
+  Medium = 640,
+  Large = 960,
+  Max = 1440,
 }
 
 export interface MenuItemNode {
