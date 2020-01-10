@@ -22,7 +22,7 @@ export const ContainerWithRef = React.forwardRef(
   )
 );
 
-const PortfolioSection: React.FC<Props> = ({
+const PortfolioPanel: React.FC<Props> = ({
   title,
   website,
   stack,
@@ -69,4 +69,4 @@ const PortfolioSection: React.FC<Props> = ({
   );
 };
 
-export default PortfolioSection;
+export default PortfolioPanel;

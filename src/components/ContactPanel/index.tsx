@@ -4,7 +4,7 @@ import PagePanel from '@components/PagePanel';
 import Container from '@components/Container';
 import componentStyles from './styles.module.scss';
 
-const ContactBlock: React.FC = () => {
+const ContactPanel: React.FC = () => {
   const formName = 'contact-form';
   const formInputEmailRef = useRef<HTMLInputElement>(null);
   const handleInputChange = () => {
@@ -83,4 +83,4 @@ const ContactBlock: React.FC = () => {
   );
 };
 
-export default ContactBlock;
+export default ContactPanel;

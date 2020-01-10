@@ -6,7 +6,7 @@ import componentStyles from './styles.module.scss';
 type GridColumnWidth = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type GridColumnOffset = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
-interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   xs?: GridColumnWidth;
   sm?: GridColumnWidth;
   md?: GridColumnWidth;
@@ -46,20 +46,15 @@ export const Col: React.FC<ColProps> = ({
   const colClasses = cn(
     componentStyles['col-base'],
     colOnly && componentStyles.col,
-    smAuto && componentStyles[`col-sm-auto`],
-    mdAuto && componentStyles[`col-md-auto`],
-    lgAuto && componentStyles[`col-lg-auto`],
-    xlAuto && componentStyles[`col-xl-auto`],
-    typeof xsOffset !== undefined && componentStyles[`offset-${xsOffset}`],
-    typeof smOffset !== undefined && componentStyles[`offset-sm-${smOffset}`],
-    typeof mdOffset !== undefined && componentStyles[`offset-md-${mdOffset}`],
-    typeof lgOffset !== undefined && componentStyles[`offset-lg-${lgOffset}`],
-    typeof xlOffset !== undefined && componentStyles[`offset-xl-${xlOffset}`],
     xs && componentStyles[`col-${xs}`],
     sm && componentStyles[`col-sm-${sm}`],
     md && componentStyles[`col-md-${md}`],
     lg && componentStyles[`col-lg-${lg}`],
     xl && componentStyles[`col-xl-${xl}`],
+    smAuto && componentStyles[`col-sm-auto`],
+    mdAuto && componentStyles[`col-md-auto`],
+    lgAuto && componentStyles[`col-lg-auto`],
+    xlAuto && componentStyles[`col-xl-auto`],
     typeof xsOffset !== undefined && componentStyles[`offset-${xsOffset}`],
     typeof smOffset !== undefined && componentStyles[`offset-sm-${smOffset}`],
     typeof mdOffset !== undefined && componentStyles[`offset-md-${mdOffset}`],

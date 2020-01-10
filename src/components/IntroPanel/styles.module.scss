@@ -1,0 +1,24 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+.title {
+  text-transform: lowercase;
+
+  @include bp(large) {
+    max-width: percentage(3/4);
+  }
+
+  @include bp(max) {
+    max-width: percentage(5/8);
+  }
+}
+
+.small-title {
+  display: none;
+
+  @include bp(medium) {
+    display: inline-block;
+    margin-bottom: 0;
+    transform-origin: left;
+    transform: translate(rem(10), rem(60)) rotate(90deg);
+  }
+}

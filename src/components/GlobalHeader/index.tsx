@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import cn from 'classnames';
-import Img from 'gatsby-image';
-import Container from '@components/Container';
 import MainMenu from '@components/GlobalHeader/components/MainMenu';
 import spaceMan from '@img/space-man.png';
 import componentStyles from './styles.module.scss';
 import Grid, { Col } from '@components/Grid';
+import SocialMediaLinks from '@components/SocialMediaLinks';
 
 interface Props {
   title: string;
@@ -63,7 +62,7 @@ const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
       <section className={componentStyles.hero}>
         <div className={componentStyles['hero-container']}>
           <Grid>
-            <Col md={8} xlOffset={2}>
+            <Col md={8} lg={7} lgOffset={1} xl={8} xlOffset={2}>
               <div className={componentStyles['content-wrap']}>
                 {titleBlocks}
                 <div className={componentStyles.body}>{children}</div>
@@ -75,6 +74,7 @@ const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
               </div>
             </div>
           </Grid>
+          <SocialMediaLinks />
         </div>
       </section>
     </div>

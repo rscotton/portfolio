@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { StackItem, PortfolioItemNode } from '@src/types';
-import PortfolioSection from '@components/PortfolioSection';
+import PortfolioPanel from '@src/components/PortfolioPanel';
 
 const PortfolioItems: React.FC = () => {
   const portfolioItemsQuery = useStaticQuery(graphql`
@@ -32,7 +32,7 @@ const PortfolioItems: React.FC = () => {
   return (
     <div id="portfolio" className="portfolio portfolio-items">
       {portfolioItems.map((portfolioItem: PortfolioItemNode) => (
-        <PortfolioSection
+        <PortfolioPanel
           key={portfolioItem.frontmatter.path}
           stack={portfolioItem.frontmatter.stack as StackItem[]}
           {...portfolioItem.frontmatter}

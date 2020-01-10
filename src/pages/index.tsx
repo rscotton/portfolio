@@ -1,15 +1,13 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import Img from 'gatsby-image';
 import GlobalHeader from '@components/GlobalHeader';
-import PagePanel from '@components/PagePanel';
 import PortfolioItems from '@components/PortfolioItems';
-import SocialMediaLinks from '@components/SocialMediaLinks';
 import GlobalFooter from '@components/GlobalFooter';
-import Container from '@components/Container';
-import ContactBlock from '@components/ContactBlock';
+import ContactPanel from '@src/components/ContactPanel';
 import PageLayout from '@src/components/PageLayout';
+import IntroPanel from '@src/components/IntroPanel';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 const IndexPage: React.FC = () => {
   const headshot = useStaticQuery(graphql`
@@ -39,28 +37,28 @@ const IndexPage: React.FC = () => {
           I create web apps &amp; experiences for businesses big and small
           across the country and beyond.
         </GlobalHeader>
-        <PagePanel name="biography">
-          <Container>
-            <h2>Biography</h2>
-            <div style={{ maxWidth: '300px' }}>
-              <Img
-                fluid={headshot.file.childImageSharp.fluid}
-                className="avatar"
-                alt="It me."
-                title="It me."
-              />
-            </div>
-            <SocialMediaLinks />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
-              aliquid asperiores assumenda autem consequatur cumque dolorum esse
-              eveniet exercitationem iure magni nam quibusdam repellendus
-              repudiandae sed sint soluta tenetur vitae.
-            </p>
-          </Container>
-        </PagePanel>
+        <IntroPanel
+          panelName="Biography"
+          title="The famous first words of every developer"
+          smallTitle="About"
+        >
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
+            aliquid asperiores assumenda autem consequatur cumque dolorum esse
+            eveniet exercitationem iure magni nam quibusdam repellendus
+            repudiandae sed sint soluta tenetur vitae.
+          </p>
+          <div style={{ maxWidth: '300px' }}>
+            <Img
+              fluid={headshot.file.childImageSharp.fluid}
+              className="avatar"
+              alt="It me."
+              title="It me."
+            />
+          </div>
+        </IntroPanel>
         <PortfolioItems />
-        <ContactBlock />
+        <ContactPanel />
         <GlobalFooter />
       </PageLayout>
     </>

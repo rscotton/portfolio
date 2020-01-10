@@ -75,12 +75,12 @@ h1,
   line-height: (62 / 48);
   font-weight: 700;
 
-  @include bp(medium) {
+  @include bp(large) {
     font-size: rem(60);
     line-height: (68 / 60);
   }
 
-  @include bp(large) {
+  @include bp(max) {
     font-size: rem(78);
     line-height: (78 / 78);
   }
@@ -92,12 +92,12 @@ h2,
   line-height: (48 / 40);
   font-weight: 700;
 
-  @include bp(medium) {
+  @include bp(large) {
     font-size: rem(44);
     line-height: (56 / 44);
   }
 
-  @include bp(large) {
+  @include bp(max) {
     font-size: rem(48);
     line-height: (62 / 48);
   }
@@ -109,7 +109,7 @@ h3,
   font-weight: 700;
   line-height: (40 / 32);
 
-  @include bp(medium) {
+  @include bp(large) {
     font-size: rem(40);
     line-height: (52 / 40);
   }
@@ -122,7 +122,7 @@ h4,
   font-weight: 600;
   line-height: (36 / 28);
 
-  @include bp(medium) {
+  @include bp(large) {
     font-size: rem(32);
     line-height: (40 / 32);
   }
@@ -134,7 +134,7 @@ h5,
   font-weight: 400;
   line-height: (24 / 16);
 
-  @include bp(medium) {
+  @include bp(large) {
     font-size: rem(18);
     line-height: (24 / 18);
   }
