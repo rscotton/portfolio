@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Waypoint } from 'react-waypoint';
+import { useInView } from 'react-intersection-observer';
 import cn from 'classnames';
 import { StackItem } from '@src/types';
 import Container, { ContainerProps } from '@components/Container';
@@ -29,42 +30,39 @@ const PortfolioPanel: React.FC<Props> = ({
   content,
   theme = 'white',
 }) => {
+  const [ref, inView] = useInView();
   const [scrolledTo, setScrolledTo] = useState<boolean>(false);
-  // TODO: Why isn't Waypoint working?
-  const handleEnter = () => {
-    if (!scrolledTo) {
-      console.log(`scrolled to ${title}`);
-      setScrolledTo(true);
-    }
-  };
+
+  if (inView && !scrolledTo) {
+    setScrolledTo(true);
+  }
+
   const teaserClasses = cn('portfolio-teaser', scrolledTo && 'animate');
 
   return (
     <PagePanel theme={theme} name={`portfolio-item-${title}`}>
-      <Waypoint bottomOffset="50px" onEnter={handleEnter}>
-        <ContainerWithRef>
-          <div className={teaserClasses}>
-            <StackBadgeCollection
-              stack={stack}
-              backgroundTheme={theme}
-              className={componentStyles.stack}
-            />
-            <h2>{title}</h2>
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
-            <a
-              className="meta meta-website"
-              href={website}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {website}
-            </a>
-          </div>
-        </ContainerWithRef>
-      </Waypoint>
+      <ContainerWithRef ref={ref}>
+        <div className={teaserClasses}>
+          <StackBadgeCollection
+            stack={stack}
+            backgroundTheme={theme}
+            className={componentStyles.stack}
+          />
+          <h2>{title}</h2>
+          <div
+            className="description"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+          <a
+            className="meta meta-website"
+            href={website}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {website}
+          </a>
+        </div>
+      </ContainerWithRef>
     </PagePanel>
   );
 };
