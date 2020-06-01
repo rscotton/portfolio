@@ -1,0 +1,113 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+$arrow-length-mobile: rem(40);
+$arrow-length-tablet: rem(48);
+$arrow-margin: rem(4);
+$link-transition-speed: 150ms;
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: calc(-1 * (#{$arrow-length-mobile} + #{$arrow-margin}));
+
+  @include bp(tablet) {
+    margin-left: calc(-1 * (#{$arrow-length-tablet} + #{$arrow-margin}));
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  svg {
+    order: -1;
+    margin-right: $arrow-margin;
+    width: $arrow-length-mobile;
+    transition: transition(
+      transform,
+      $speed: $link-transition-speed,
+      $ease: ease-in-out
+    );
+
+    @include bp(tablet) {
+      width: $arrow-length-tablet;
+    }
+  }
+
+  &:hover svg,
+  &:focus svg {
+    transform: scale(1.2);
+  }
+
+  &-arrow {
+    &-black svg {
+      fill: palette(space-black);
+    }
+
+    &-white svg {
+      fill: palette(off-white);
+    }
+
+    &-grey svg {
+      fill: palette(moon-rock);
+    }
+  }
+
+  &-label {
+    &-black {
+      color: palette(space-black);
+    }
+
+    &-white {
+      color: palette(off-white);
+    }
+
+    &-grey {
+      color: palette(moon-rock);
+    }
+
+    &-yellow {
+      color: palette(star-yellow);
+    }
+  }
+
+  &-underline {
+    &-black,
+    &-white,
+    &-yellow {
+      &:after {
+        content: '';
+        position: absolute;
+        top: calc(100% - #{$arrow-margin});
+        right: 0;
+        display: block;
+        width: calc(100% - (#{$arrow-length-mobile} + #{$arrow-margin}));
+        border-bottom: rem(4) solid;
+        transition: transition(
+          border-bottom-width,
+          $speed: $link-transition-speed,
+          $ease: ease-in-out
+        );
+      }
+
+      &:hover:after,
+      &:focus:after {
+        border-bottom-width: rem(8);
+      }
+    }
+
+    &-black:after {
+      border-color: palette(space-black);
+    }
+
+    &-white:after {
+      border-color: palette(off-white);
+    }
+
+    &-yellow:after {
+      border-color: palette(star-yellow);
+    }
+  }
+}

@@ -7,8 +7,9 @@ import StackBadgeCollection from '@components/StackBadge/components/StackBadgeCo
 import GlobalFooter from '@components/GlobalFooter';
 import PagePanel from '@components/PagePanel';
 import Container from '@components/Container';
-import PageLayout from '@src/components/PageLayout';
-import Grid, { Col } from '@src/components/Grid';
+import PageLayout from '@components/PageLayout';
+import Grid, { Col } from '@components/Grid';
+import FancyLink from '@components/FancyLink';
 
 const StyleGuidePage: React.FC = () => {
   const stackQuery = useStaticQuery(graphql`
@@ -68,6 +69,63 @@ const StyleGuidePage: React.FC = () => {
             <p>This part of the text is wrapped in a paragraph.</p>
             <footer>Writie McAuthorship</footer>
           </blockquote>
+          <section>
+            <h2>Fancy Links</h2>
+            <p>
+              <FancyLink
+                labelColor="black"
+                arrowColor="black"
+                href="https://google.com"
+                target="_blank"
+              >
+                Here is a fancy link
+              </FancyLink>
+            </p>
+            <p>
+              <FancyLink
+                labelColor="black"
+                arrowColor="black"
+                underlineColor="black"
+                href="https://google.com"
+                target="_blank"
+              >
+                Here is a fancy link w/underline
+              </FancyLink>
+            </p>
+            <p>
+              <FancyLink
+                labelColor="yellow"
+                arrowColor="white"
+                underlineColor="white"
+                href="https://google.com"
+                target="_blank"
+              >
+                More Fancy Links
+              </FancyLink>
+            </p>
+            <p>
+              <FancyLink
+                labelColor="white"
+                arrowColor="black"
+                underlineColor="yellow"
+                href="https://google.com"
+                target="_blank"
+              >
+                More Fancy Links
+              </FancyLink>
+            </p>
+            <p>
+              <FancyLink
+                labelColor="black"
+                arrowColor="black"
+                underlineColor="black"
+                href="https://google.com"
+                target="_blank"
+              >
+                More Fancy Links
+              </FancyLink>
+            </p>
+          </section>
           <section>
             <h2>Badges</h2>
             <StackBadgeCollection stack={flatStack} />
