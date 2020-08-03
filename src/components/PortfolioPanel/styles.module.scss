@@ -12,6 +12,14 @@
   }
 }
 
+.vertical-title {
+  display: none;
+
+  @include bp(large) {
+    display: inline-block;
+  }
+}
+
 .flip-columns {
   @include bp(large) {
     flex-direction: row-reverse;
@@ -23,8 +31,9 @@
 }
 
 .demo {
-  &-column {
+  &-col {
     margin-top: rem(60);
+    text-align: center;
 
     @include bp(large) {
       margin-top: 0;

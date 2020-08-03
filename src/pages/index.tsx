@@ -1,21 +1,21 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import GlobalHeader from '@components/GlobalHeader';
 import PortfolioItems from '@components/PortfolioItems';
 import GlobalFooter from '@components/GlobalFooter';
-import ContactPanel from '@src/components/ContactPanel';
-import PageLayout from '@src/components/PageLayout';
-import IntroPanel from '@src/components/IntroPanel';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import ContactPanel from '@components/ContactPanel';
+import PageLayout from '@components/PageLayout';
+import IntroPanel from '@components/IntroPanel';
+import SpaceSubfooter from '@components/SpaceSubfooter';
+import SkillSetPanel from '@src/components/SkillSetPanel';
 
 const IndexPage: React.FC = () => {
   const headshot = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "img/headshot.jpg" }) {
         childImageSharp {
-          # Specify a fluid image and fragment
-          # The default maxWidth is 800 pixels
           fluid(maxWidth: 300, traceSVG: { color: "#4c4f50" }) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
@@ -58,6 +58,9 @@ const IndexPage: React.FC = () => {
           </div>
         </IntroPanel>
         <PortfolioItems />
+        <SpaceSubfooter>
+          <SkillSetPanel />
+        </SpaceSubfooter>
         <ContactPanel />
         <GlobalFooter />
       </PageLayout>

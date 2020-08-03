@@ -35,7 +35,9 @@ const IntroPanel: React.FC<Props> = ({
       <Grid>
         {smallTitle && (
           <Col md={2} lg={1} xl={2}>
-            <VerticalTitle>{smallTitle}</VerticalTitle>
+            <VerticalTitle className={componentStyles['vertical-title']}>
+              {smallTitle}
+            </VerticalTitle>
           </Col>
         )}
         <Col {...contentColProps}>

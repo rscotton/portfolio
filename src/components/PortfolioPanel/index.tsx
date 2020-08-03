@@ -71,7 +71,9 @@ const PortfolioPanel: React.FC<Props> = ({
           lg={1}
           aria-hidden={true}
         >
-          <VerticalTitle>Portfolio</VerticalTitle>
+          <VerticalTitle className={componentStyles['vertical-title']}>
+            Portfolio
+          </VerticalTitle>
         </Col>
         <Col lg={5} xl={4}>
           <div>
@@ -95,7 +97,7 @@ const PortfolioPanel: React.FC<Props> = ({
             </FancyLink>
           </div>
         </Col>
-        <Col lg={6} xl={7} className={componentStyles['demo-column']}>
+        <Col lg={6} xl={7} className={componentStyles['demo-col']}>
           <div className={componentStyles['demo-image-wrap']}>
             <LaptopSiteDemo
               screenshot={screenshot}

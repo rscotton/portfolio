@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { StackItem, Color } from '@src/types';
+import { Color } from '@src/types';
+import { getFlatStackFromAllStackItems } from '@src/utils/queries';
 import GlobalHeader from '@components/GlobalHeader';
 import SocialMediaLinks from '@components/SocialMediaLinks';
 import StackBadgeCollection from '@components/StackBadge/components/StackBadgeCollection';
@@ -30,15 +31,7 @@ const StyleGuidePage: React.FC = () => {
       }
     }
   `);
-  const allStack = stackQuery.allMarkdownRemark.edges.reduce(
-    (allStackItems: StackItem[], queryResult: any) =>
-      (allStackItems = [
-        ...allStackItems,
-        ...queryResult.node.frontmatter.stack,
-      ]),
-    []
-  );
-  const flatStack: StackItem[] = [...new Set<StackItem>(allStack)];
+  const fullStack = getFlatStackFromAllStackItems(stackQuery);
   const gridColStyle: React.CSSProperties = {
     backgroundColor: Color.SpaceBlack,
     border: '1px solid currentColor',
@@ -133,7 +126,7 @@ const StyleGuidePage: React.FC = () => {
           </section>
           <section>
             <h2>Badges</h2>
-            <StackBadgeCollection stack={flatStack} />
+            <StackBadgeCollection stack={fullStack} />
           </section>
           <section>
             <h2>Social Media</h2>
