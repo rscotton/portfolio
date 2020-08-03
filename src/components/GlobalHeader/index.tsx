@@ -14,19 +14,6 @@ interface Props {
 }
 
 const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
-  // const spaceMan = useStaticQuery(graphql`
-  //   query {
-  //     file(relativePath: { eq: "img/space-man.png" }) {
-  //       childImageSharp {
-  //         # Specify a fluid image and fragment
-  //         # The default maxWidth is 800 pixels
-  //         fluid(maxWidth: 794) {
-  //           ...GatsbyImageSharpFluid_withWebp_tracedSVG
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
   let titleBlocks: React.ReactNode;
 
   if (bigTitle) {
@@ -62,7 +49,10 @@ const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
       <section className={componentStyles.hero}>
         <div className={componentStyles['hero-container']}>
           <Grid>
-            <Col md={8} lg={7} lgOffset={1} xl={8} xlOffset={2}>
+            <Col className={componentStyles['social-media-col']} lg={1}>
+              <SocialMediaLinks theme="light" alignment="vertical" />
+            </Col>
+            <Col md={8} lg={7} lgOffset={1} xl={8} xlOffset={1}>
               <div className={componentStyles['content-wrap']}>
                 {titleBlocks}
                 <div className={componentStyles.body}>{children}</div>
@@ -74,7 +64,6 @@ const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
               </div>
             </div>
           </Grid>
-          <SocialMediaLinks />
         </div>
       </section>
     </div>

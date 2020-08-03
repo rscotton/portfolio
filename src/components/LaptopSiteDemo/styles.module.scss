@@ -31,4 +31,5 @@ $site-image-offset-right-ratio: $laptop-frame-viewport-offset-right /
   height: percentage($site-image-height-ratio);
   background-color: palette('off-white');
   overflow: auto;
+  cursor: move;
 }

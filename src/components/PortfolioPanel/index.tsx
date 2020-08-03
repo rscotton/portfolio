@@ -58,10 +58,19 @@ const PortfolioPanel: React.FC<Props> = ({
       };
   }
 
+  const gridRowClassName = cn(
+    componentStyles['grid-row'],
+    flipColumns && componentStyles['flip-columns']
+  );
+
   return (
     <PagePanel theme={theme} name={`portfolio-item-${title}`}>
-      <Grid rowClassName={cn(flipColumns && componentStyles['flip-columns'])}>
-        <Col lg={1} aria-hidden={true}>
+      <Grid rowClassName={gridRowClassName}>
+        <Col
+          className={componentStyles['vertical-title-col']}
+          lg={1}
+          aria-hidden={true}
+        >
           <VerticalTitle>Portfolio</VerticalTitle>
         </Col>
         <Col lg={5} xl={4}>

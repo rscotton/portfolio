@@ -13,6 +13,16 @@ $section-padding: rem(64);
   color: palette('galaxy-white');
 }
 
+.social-media-col {
+  display: none;
+
+  @include bp(large) {
+    display: block;
+    align-self: flex-end;
+    transform: translateY(50%);
+  }
+}
+
 .space-man {
   position: absolute;
   width: rem(445);
@@ -24,6 +34,8 @@ $section-padding: rem(64);
 
   &-inner {
     position: relative;
+    user-select: none;
+    pointer-events: none;
 
     @include bp(large) {
       &:after {
@@ -148,6 +160,7 @@ $section-padding: rem(64);
 .body {
   margin-top: rem(16);
   font-weight: 500;
+  max-width: rem(450);
 
   @include bp(medium) {
     margin-top: rem(64);

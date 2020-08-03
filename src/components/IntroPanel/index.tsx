@@ -20,11 +20,13 @@ const IntroPanel: React.FC<Props> = ({
   const contentColProps: ColProps = smallTitle
     ? {
         md: 8,
+        xl: 7,
       }
     : {
         md: 8,
         mdOffset: 2,
         lgOffset: 1,
+        xl: 7,
         xlOffset: 2,
       };
 
@@ -38,7 +40,7 @@ const IntroPanel: React.FC<Props> = ({
         )}
         <Col {...contentColProps}>
           <h2 className={componentStyles.title}>{title}</h2>
-          {children}
+          <div>{children}</div>
         </Col>
       </Grid>
     </PagePanel>

@@ -87,7 +87,7 @@ $link-transition-speed: 150ms;
         width: calc(100% - (#{$arrow-length-mobile} + #{$arrow-margin}));
         border-bottom: rem(6) solid;
         transition: transition(
-          border-bottom-width,
+          transform,
           $speed: $link-transition-speed,
           $ease: ease-in-out
         );
@@ -95,7 +95,7 @@ $link-transition-speed: 150ms;
 
       &:hover:after,
       &:focus:after {
-        border-bottom-width: rem(8);
+        transform: scale(1.05);
       }
     }
 

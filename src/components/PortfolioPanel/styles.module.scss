@@ -1,5 +1,17 @@
 @import 'src/styleUtils/helpers/mixins.scss';
 
+.grid-row {
+  @include bp(large) {
+    align-items: center;
+  }
+}
+
+.vertical-title-col {
+  @include bp(large) {
+    align-self: flex-start;
+  }
+}
+
 .flip-columns {
   @include bp(large) {
     flex-direction: row-reverse;
@@ -20,7 +32,11 @@
   }
 
   &-image-wrap {
-    @include clean-spacing(margin, $left: rem(-30), $right: rem(-30));
+    @include clean-spacing(margin, $left: rem(-30), $right: rem(-128));
+
+    @include bp(medium) {
+      margin-right: rem(-30);
+    }
 
     @include bp(large) {
       margin-left: 0;
