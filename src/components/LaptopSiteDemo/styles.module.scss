@@ -1,0 +1,34 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+// Frame image specs
+$laptop-frame-width: 869;
+$laptop-frame-height: 495;
+$laptop-frame-viewport-height: 414;
+$laptop-frame-viewport-offset-top: 22;
+$laptop-frame-viewport-offset-left: 120;
+$laptop-frame-viewport-offset-right: 120;
+
+// Positioning specs within frame image
+$site-image-height-ratio: $laptop-frame-viewport-height / $laptop-frame-height;
+$site-image-offset-top-ratio: $laptop-frame-viewport-offset-top /
+  $laptop-frame-height;
+$site-image-offset-left-ratio: $laptop-frame-viewport-offset-left /
+  $laptop-frame-width;
+$site-image-offset-right-ratio: $laptop-frame-viewport-offset-right /
+  $laptop-frame-width;
+
+.container {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+}
+
+.site-image {
+  position: absolute;
+  top: percentage($site-image-offset-top-ratio);
+  left: percentage($site-image-offset-left-ratio);
+  right: percentage($site-image-offset-right-ratio);
+  height: percentage($site-image-height-ratio);
+  background-color: palette('off-white');
+  overflow: auto;
+}

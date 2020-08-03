@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Waypoint } from 'react-waypoint';
-import { useInView } from 'react-intersection-observer';
+import React from 'react';
 import cn from 'classnames';
 import { StackItem } from '@src/types';
-import Container, { ContainerProps } from '@components/Container';
+import { urlShortName } from '@src/utils/helpers';
 import PagePanel, { PagePanelTheme } from '@components/PagePanel';
 import StackBadgeCollection from '@components/StackBadge/components/StackBadgeCollection';
+import Grid, { Col } from '@components/Grid';
+import VerticalTitle from '@components/VerticalTitle';
+import FancyLink, { FancyLinkProps } from '@components/FancyLink';
+import LaptopSiteDemo from '@components/LaptopSiteDemo';
 import componentStyles from './styles.module.scss';
 
 interface Props {
@@ -13,56 +15,86 @@ interface Props {
   website: string;
   stack: StackItem[];
   content: string;
+  screenshot: any;
+  flipColumns?: boolean;
   theme?: PagePanelTheme;
 }
-
-// https://github.com/civiccc/react-waypoint#children
-export const ContainerWithRef = React.forwardRef(
-  (props: ContainerProps, ref: React.Ref<HTMLDivElement>) => (
-    <Container innerRef={ref} {...props} />
-  )
-);
 
 const PortfolioPanel: React.FC<Props> = ({
   title,
   website,
   stack,
   content,
+  screenshot,
+  flipColumns,
   theme = 'white',
 }) => {
-  const [ref, inView] = useInView();
-  const [scrolledTo, setScrolledTo] = useState<boolean>(false);
+  let fancyLinkColorProps: Pick<
+    FancyLinkProps,
+    'arrowColor' | 'labelColor' | 'underlineColor'
+  >;
 
-  if (inView && !scrolledTo) {
-    setScrolledTo(true);
+  switch (theme) {
+    case 'black':
+      fancyLinkColorProps = {
+        arrowColor: 'white',
+        labelColor: 'yellow',
+        underlineColor: 'white',
+      };
+      break;
+    case 'blue':
+      fancyLinkColorProps = {
+        arrowColor: 'black',
+        labelColor: 'white',
+        underlineColor: 'yellow',
+      };
+      break;
+    default:
+      // yellow and white theme reuse same colors
+      fancyLinkColorProps = {
+        arrowColor: 'black',
+        labelColor: 'black',
+        underlineColor: 'black',
+      };
   }
-
-  const teaserClasses = cn('portfolio-teaser', scrolledTo && 'animate');
 
   return (
     <PagePanel theme={theme} name={`portfolio-item-${title}`}>
-      <ContainerWithRef ref={ref}>
-        <div className={teaserClasses}>
-          <StackBadgeCollection
-            stack={stack}
-            backgroundTheme={theme}
-            className={componentStyles.stack}
-          />
-          <h2>{title}</h2>
-          <div
-            className="description"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-          <a
-            className="meta meta-website"
-            href={website}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {website}
-          </a>
-        </div>
-      </ContainerWithRef>
+      <Grid rowClassName={cn(flipColumns && componentStyles['flip-columns'])}>
+        <Col lg={1} aria-hidden={true}>
+          <VerticalTitle>Portfolio</VerticalTitle>
+        </Col>
+        <Col lg={5} xl={4}>
+          <div>
+            <StackBadgeCollection
+              stack={stack}
+              backgroundTheme={theme}
+              className={componentStyles.stack}
+            />
+            <h2>{title}</h2>
+            <div
+              className="description"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+            <FancyLink
+              {...fancyLinkColorProps}
+              href={website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {urlShortName(website)}
+            </FancyLink>
+          </div>
+        </Col>
+        <Col lg={6} xl={7} className={componentStyles['demo-column']}>
+          <div className={componentStyles['demo-image-wrap']}>
+            <LaptopSiteDemo
+              screenshot={screenshot}
+              screenshotAlt={`${title} website screenshot`}
+            />
+          </div>
+        </Col>
+      </Grid>
     </PagePanel>
   );
 };

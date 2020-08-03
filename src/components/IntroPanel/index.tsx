@@ -1,6 +1,7 @@
 import React from 'react';
 import PagePanel from '@components/PagePanel';
 import Grid, { ColProps, Col } from '@components/Grid';
+import VerticalTitle from '@components/VerticalTitle';
 import componentStyles from './styles.module.scss';
 
 interface Props {
@@ -32,7 +33,7 @@ const IntroPanel: React.FC<Props> = ({
       <Grid>
         {smallTitle && (
           <Col md={2} lg={1} xl={2}>
-            <h6 className={componentStyles['small-title']}>{smallTitle}</h6>
+            <VerticalTitle>{smallTitle}</VerticalTitle>
           </Col>
         )}
         <Col {...contentColProps}>

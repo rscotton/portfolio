@@ -1,5 +1,30 @@
 @import 'src/styleUtils/helpers/mixins.scss';
 
+.flip-columns {
+  @include bp(large) {
+    flex-direction: row-reverse;
+  }
+}
+
 .stack {
   margin-bottom: rem(24);
+}
+
+.demo {
+  &-column {
+    margin-top: rem(60);
+
+    @include bp(large) {
+      margin-top: 0;
+    }
+  }
+
+  &-image-wrap {
+    @include clean-spacing(margin, $left: rem(-30), $right: rem(-30));
+
+    @include bp(large) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 }

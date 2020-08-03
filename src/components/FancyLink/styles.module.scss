@@ -2,7 +2,8 @@
 
 $arrow-length-mobile: rem(40);
 $arrow-length-tablet: rem(48);
-$arrow-margin: rem(4);
+$arrow-margin: rem(8);
+$underline-margin: rem(-2);
 $link-transition-speed: 150ms;
 
 .link {
@@ -38,7 +39,7 @@ $link-transition-speed: 150ms;
 
   &:hover svg,
   &:focus svg {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   &-arrow {
@@ -80,11 +81,11 @@ $link-transition-speed: 150ms;
       &:after {
         content: '';
         position: absolute;
-        top: calc(100% - #{$arrow-margin});
+        top: calc(100% + #{$underline-margin});
         right: 0;
         display: block;
         width: calc(100% - (#{$arrow-length-mobile} + #{$arrow-margin}));
-        border-bottom: rem(4) solid;
+        border-bottom: rem(6) solid;
         transition: transition(
           border-bottom-width,
           $speed: $link-transition-speed,

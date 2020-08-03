@@ -46,6 +46,7 @@ export interface PortfolioItemNode {
     title: string;
     website: string;
     description: string;
+    screenshot: any; // TODO: Implement Gatsby node typing
     stack: StackItem[];
   };
   html: string;

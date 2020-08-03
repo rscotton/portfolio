@@ -11,14 +11,3 @@
     max-width: percentage(5/8);
   }
 }
-
-.small-title {
-  display: none;
-
-  @include bp(medium) {
-    display: inline-block;
-    margin-bottom: 0;
-    transform-origin: left;
-    transform: translate(rem(10), rem(60)) rotate(90deg);
-  }
-}

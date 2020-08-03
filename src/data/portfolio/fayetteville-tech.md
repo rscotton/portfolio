@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 weight: 45
 path: '/portfolio/fayetteville-tech'
 theme: 'yellow'

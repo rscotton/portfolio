@@ -3,7 +3,7 @@ import cn from 'classnames';
 import Icon from '@components/Icon';
 import componentStyles from './styles.module.scss';
 
-interface FancyLinkProps extends React.HTMLProps<HTMLAnchorElement> {
+export interface FancyLinkProps extends React.HTMLProps<HTMLAnchorElement> {
   arrowColor: 'black' | 'white' | 'grey';
   labelColor: 'black' | 'white' | 'grey' | 'yellow';
   underlineColor?: 'black' | 'white' | 'yellow';

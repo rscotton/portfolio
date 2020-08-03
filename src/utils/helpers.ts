@@ -64,3 +64,9 @@ export const serialize = (form: HTMLFormElement) => {
 
   return serialized.join('&');
 };
+
+export const urlShortName = (url: string) =>
+  url
+    .replace(/https?:\/\//i, '') // Remove protocol
+    .replace(/www\./i, '') // Remove www
+    .replace(/\/.*$/i, ''); // Remove any appended path

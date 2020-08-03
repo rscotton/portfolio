@@ -18,6 +18,13 @@ const PortfolioItems: React.FC = () => {
               title
               website
               stack
+              screenshot {
+                childImageSharp {
+                  fluid(maxWidth: 1000) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
             }
             html
           }
@@ -31,12 +38,13 @@ const PortfolioItems: React.FC = () => {
 
   return (
     <div id="portfolio" className="portfolio portfolio-items">
-      {portfolioItems.map((portfolioItem: PortfolioItemNode) => (
+      {portfolioItems.map((portfolioItem: PortfolioItemNode, i: number) => (
         <PortfolioPanel
           key={portfolioItem.frontmatter.path}
           stack={portfolioItem.frontmatter.stack as StackItem[]}
           {...portfolioItem.frontmatter}
           content={portfolioItem.html}
+          flipColumns={i % 2 !== 0}
         />
       ))}
     </div>

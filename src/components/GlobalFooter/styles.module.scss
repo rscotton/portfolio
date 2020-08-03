@@ -12,7 +12,7 @@
 .hide-small {
   display: none;
 
-  @include bp('medium') {
+  @include bp(medium) {
     display: block;
   }
 }
@@ -37,7 +37,7 @@
 .section-connect {
   line-height: 1;
 
-  @include bp('medium') {
+  @include bp(medium) {
     display: flex;
     align-items: center;
     line-height: inherit;

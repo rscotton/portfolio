@@ -10,6 +10,11 @@ import Container from '@components/Container';
 import PageLayout from '@components/PageLayout';
 import Grid, { Col } from '@components/Grid';
 import FancyLink from '@components/FancyLink';
+import LaptopSiteDemo from '@src/components/LaptopSiteDemo';
+import proposaScreenshot from '@img/website_screenshots/proposa.png';
+import duntonDestinationsScreenshot from '@img/website_screenshots/dunton-destinations.png';
+import twinDolphinScreenshot from '@img/website_screenshots/twin-dolphin.png';
+import dukeDomScreenshot from '@img/website_screenshots/duke-dom.png';
 
 const StyleGuidePage: React.FC = () => {
   const stackQuery = useStaticQuery(graphql`
@@ -302,6 +307,25 @@ const StyleGuidePage: React.FC = () => {
                 1
               </Col>
             </Grid>
+          </section>
+          <section>
+            <h2>Laptop Site Demo</h2>
+            <LaptopSiteDemo
+              screenshot={proposaScreenshot}
+              screenshotAlt="Proposa website screenshot"
+            />
+            <LaptopSiteDemo
+              screenshot={duntonDestinationsScreenshot}
+              screenshotAlt="Duntion Destinations website screenshot"
+            />
+            <LaptopSiteDemo
+              screenshot={twinDolphinScreenshot}
+              screenshotAlt="Twin Dolphin Los Cabos website screenshot"
+            />
+            <LaptopSiteDemo
+              screenshot={dukeDomScreenshot}
+              screenshotAlt="Duke Department of Medicine website screenshot"
+            />
           </section>
         </Container>
       </PagePanel>
