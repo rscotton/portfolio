@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import cn from 'classnames';
@@ -25,6 +25,8 @@ const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
       }
     }
   `);
+  const [backdropReady, setBackdropReady] = useState<boolean>(false);
+
   let titleBlocks: React.ReactNode;
 
   if (bigTitle) {
@@ -69,12 +71,18 @@ const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
                 <div className={componentStyles.body}>{children}</div>
               </div>
             </Col>
-            <div className={componentStyles['space-man']}>
+            <div
+              className={cn(
+                componentStyles['space-man'],
+                backdropReady && componentStyles.visible
+              )}
+            >
               <div className={componentStyles['space-man-inner']}>
                 <Img
                   fluid={spaceMan.file.childImageSharp.fluid}
                   fadeIn={false}
                   loading="eager"
+                  onLoad={() => setBackdropReady(true)}
                   alt=""
                 />
               </div>

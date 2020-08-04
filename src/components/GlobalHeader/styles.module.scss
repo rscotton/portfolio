@@ -31,6 +31,12 @@ $section-padding: rem(64);
   z-index: z(1);
   max-width: none;
   line-height: 0;
+  opacity: 0;
+  transition: transition(opacity, $speed: 400ms, $ease: ease-out);
+
+  &.visible {
+    opacity: 1;
+  }
 
   &-inner {
     position: relative;
