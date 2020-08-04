@@ -31,8 +31,10 @@ const SkillSetPanel: React.FC = () => {
             Skill Set
           </VerticalTitle>
         </Col>
-        <Col md={10} lg={7}>
-          <h2>My skillset is out of this world</h2>
+        <Col md={10} lg={8}>
+          <h2 className={componentStyles.title}>
+            My skill set is out of this world
+          </h2>
           <StackBadgeCollection
             className={componentStyles.badges}
             stack={fullStack}

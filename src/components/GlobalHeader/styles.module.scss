@@ -25,8 +25,8 @@ $section-padding: rem(64);
 
 .space-man {
   position: absolute;
-  width: rem(445);
-  bottom: calc(-#{$section-padding} - 30px);
+  width: rem(300);
+  bottom: calc(-#{$section-padding} - 19px);
   right: rem(-100);
   z-index: z(1);
   max-width: none;
@@ -52,8 +52,8 @@ $section-padding: rem(64);
   }
 
   @include bp(medium) {
-    width: rem(550);
-    bottom: calc(-#{$section-padding} - 37px);
+    width: rem(500);
+    bottom: calc(-#{$section-padding} - 32px);
     right: rem(-165);
   }
 

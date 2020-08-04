@@ -10,6 +10,9 @@ import PageLayout from '@components/PageLayout';
 import IntroPanel from '@components/IntroPanel';
 import SpaceSubfooter from '@components/SpaceSubfooter';
 import SkillSetPanel from '@src/components/SkillSetPanel';
+import TestimonialsPanel, {
+  Testimonial,
+} from '@src/components/TestimonialsPanel';
 
 const IndexPage: React.FC = () => {
   const headshot = useStaticQuery(graphql`
@@ -23,6 +26,13 @@ const IndexPage: React.FC = () => {
       }
     }
   `);
+  const testimonial: Testimonial = {
+    quote: `I've had the pleasure of working with Ryan for several years. As an Art Director, it's refreshing to have a developer with not only an eye for design but one who challenges you to be a better designer.`,
+    authorName: 'James Fekete',
+    authorRole: 'Creative Director',
+    authorCompany: 'Coalmarch',
+    authorUrl: 'https://www.coalmarch.com/about-us/our-team/james-fekete',
+  };
 
   return (
     <>
@@ -60,6 +70,7 @@ const IndexPage: React.FC = () => {
         <PortfolioItems />
         <SpaceSubfooter>
           <SkillSetPanel />
+          <TestimonialsPanel testimonial={testimonial} />
         </SpaceSubfooter>
         <ContactPanel />
         <GlobalFooter />

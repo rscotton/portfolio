@@ -1,0 +1,67 @@
+@import 'src/styleUtils/helpers/mixins.scss';
+
+.quote {
+  position: relative;
+  font-size: rem(20);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.875;
+
+  @include bp(large) {
+    font-size: rem(28);
+    line-height: 1.75;
+  }
+
+  &:before {
+    content: '\201c';
+    display: block;
+    margin-bottom: rem(10);
+    color: palette(star-yellow);
+    font-size: 7em;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 0;
+
+    @include bp(large) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      font-size: 5.5em;
+      line-height: 1;
+      transform: translateX(-125%);
+    }
+  }
+
+  &-footer {
+    margin-top: rem(40);
+
+    @include bp(large) {
+      margin-top: rem(60);
+      text-align: center;
+    }
+  }
+}
+
+.attribution {
+  color: palette(star-yellow);
+  text-transform: uppercase;
+
+  &-link {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.vertical-title {
+  display: none;
+
+  @include bp(medium) {
+    display: inline-block;
+    color: palette(star-yellow);
+  }
+}
