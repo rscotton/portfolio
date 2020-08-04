@@ -42,6 +42,7 @@ const TestimonialsPanel: React.FC<Props> = ({ testimonial }) => {
                   )}
                   href={authorUrl}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {attributionText}
                 </a>

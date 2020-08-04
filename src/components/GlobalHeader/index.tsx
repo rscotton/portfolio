@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import cn from 'classnames';
 import MainMenu from '@components/GlobalHeader/components/MainMenu';
-import spaceMan from '@img/space-man.png';
-import componentStyles from './styles.module.scss';
 import Grid, { Col } from '@components/Grid';
 import SocialMediaLinks from '@components/SocialMediaLinks';
+import componentStyles from './styles.module.scss';
 
 interface Props {
   title: string;
@@ -14,6 +14,17 @@ interface Props {
 }
 
 const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
+  const spaceMan = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "img/space-man.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 794) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `);
   let titleBlocks: React.ReactNode;
 
   if (bigTitle) {
@@ -60,7 +71,12 @@ const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
             </Col>
             <div className={componentStyles['space-man']}>
               <div className={componentStyles['space-man-inner']}>
-                <img src={spaceMan} alt="" />
+                <Img
+                  fluid={spaceMan.file.childImageSharp.fluid}
+                  fadeIn={false}
+                  loading="eager"
+                  alt=""
+                />
               </div>
             </div>
           </Grid>

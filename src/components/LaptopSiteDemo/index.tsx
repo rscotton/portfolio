@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import cn from 'classnames';
-import laptopFrame from '@img/laptop-frame.png';
 import componentStyles from './styles.module.scss';
 
 export interface LaptopSiteDemoProps {
@@ -13,14 +13,25 @@ const LaptopSiteDemo: React.FC<LaptopSiteDemoProps> = ({
   screenshot,
   screenshotAlt,
 }) => {
+  const laptopFrame = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "img/laptop-frame.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 869, traceSVG: { color: "#95999a" }) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          }
+        }
+      }
+    }
+  `);
   const [scrollingActive, setScrollingActive] = useState<boolean>(false);
-  const isRawUrl = typeof screenshot === 'string';
   const toggleScrollingActive = () => setScrollingActive(!scrollingActive);
+  const isRawUrl = typeof screenshot === 'string';
 
   return (
     <div>
       <div className={componentStyles['image-container']}>
-        <img src={laptopFrame} alt="" />
+        <Img fluid={laptopFrame.file.childImageSharp.fluid} alt="" />
         <div
           className={cn(
             componentStyles['site-image-frame'],

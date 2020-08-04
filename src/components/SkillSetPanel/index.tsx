@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { getFlatStackFromAllStackItems } from '@src/utils/queries';
 import PagePanel from '@components/PagePanel';
 import Grid, { Col } from '@components/Grid';
