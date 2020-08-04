@@ -31,7 +31,7 @@ const TestimonialsPanel: React.FC<Props> = ({ testimonial }) => {
     <PagePanel name="testimonials">
       <Grid>
         <Col md={10} mdOffset={1} lg={8}>
-          <blockquote>
+          <blockquote aria-label="testimonial">
             <p className={componentStyles.quote}>{quote}</p>
             <footer className={componentStyles['quote-footer']}>
               {authorUrl ? (

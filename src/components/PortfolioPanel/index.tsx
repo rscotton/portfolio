@@ -76,25 +76,28 @@ const PortfolioPanel: React.FC<Props> = ({
           </VerticalTitle>
         </Col>
         <Col lg={5} xl={4}>
-          <div>
+          <div className={componentStyles.body}>
+            <div className={componentStyles['body-primary']}>
+              <h2>{title}</h2>
+              <div
+                className="description"
+                dangerouslySetInnerHTML={{ __html: content }}
+              />
+              <FancyLink
+                {...fancyLinkColorProps}
+                href={website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {urlShortName(website)}
+              </FancyLink>
+            </div>
             <StackBadgeCollection
               stack={stack}
               backgroundTheme={theme}
               className={componentStyles.stack}
+              aria-label="Project Tech Stack"
             />
-            <h2>{title}</h2>
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
-            <FancyLink
-              {...fancyLinkColorProps}
-              href={website}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {urlShortName(website)}
-            </FancyLink>
           </div>
         </Col>
         <Col lg={6} xl={7} className={componentStyles['demo-col']}>

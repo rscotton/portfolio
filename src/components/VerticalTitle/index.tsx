@@ -5,7 +5,11 @@ import componentStyles from './styles.module.scss';
 interface Props extends React.HTMLAttributes<HTMLHeadingElement> {}
 
 const VerticalTitle: React.FC<Props> = ({ className, children, ...rest }) => (
-  <h6 className={cn(componentStyles.title, className)} {...rest}>
+  <h6
+    className={cn(componentStyles.title, className)}
+    aria-hidden={true}
+    {...rest}
+  >
     {children}
   </h6>
 );

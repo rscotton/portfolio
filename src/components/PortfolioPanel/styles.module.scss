@@ -26,6 +26,15 @@
   }
 }
 
+.body {
+  display: flex;
+  flex-direction: column;
+
+  &-primary {
+    order: 1;
+  }
+}
+
 .stack {
   margin-bottom: rem(24);
 }

@@ -38,6 +38,7 @@ const SkillSetPanel: React.FC = () => {
           <StackBadgeCollection
             className={componentStyles.badges}
             stack={fullStack}
+            aria-label="My Tech Stack"
           />
         </Col>
       </Grid>
