@@ -19,6 +19,9 @@ $site-image-offset-right-ratio: $laptop-frame-viewport-offset-right /
 
 .container {
   display: inline-block;
+}
+
+.image-container {
   position: relative;
   line-height: 0;
 }
@@ -67,5 +70,14 @@ $site-image-offset-right-ratio: $laptop-frame-viewport-offset-right /
   &-text {
     font-weight: 700;
     color: palette(galaxy-white);
+  }
+}
+
+.mobile-tap {
+  font-weight: 600;
+  font-style: italic;
+
+  @include bp(large) {
+    display: none;
   }
 }

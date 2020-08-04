@@ -18,35 +18,40 @@ const LaptopSiteDemo: React.FC<LaptopSiteDemoProps> = ({
   const toggleScrollingActive = () => setScrollingActive(!scrollingActive);
 
   return (
-    <div className={componentStyles.container}>
-      <img src={laptopFrame} alt="" />
-      <div
-        className={cn(
-          componentStyles['site-image-frame'],
-          componentStyles['site-image-frame-position'],
-          scrollingActive && componentStyles['scrolling-active']
-        )}
-        onClick={toggleScrollingActive}
-      >
-        {isRawUrl ? (
-          <img src={screenshot} alt={screenshotAlt} />
-        ) : (
-          <Img fluid={screenshot.childImageSharp.fluid} alt={screenshotAlt} />
-        )}
+    <div>
+      <div className={componentStyles['image-container']}>
+        <img src={laptopFrame} alt="" />
+        <div
+          className={cn(
+            componentStyles['site-image-frame'],
+            componentStyles['site-image-frame-position'],
+            scrollingActive && componentStyles['scrolling-active']
+          )}
+          onClick={toggleScrollingActive}
+        >
+          {isRawUrl ? (
+            <img src={screenshot} alt={screenshotAlt} />
+          ) : (
+            <Img fluid={screenshot.childImageSharp.fluid} alt={screenshotAlt} />
+          )}
+        </div>
+        <div
+          className={cn(
+            componentStyles['activation-overlay'],
+            componentStyles['site-image-frame-position'],
+            scrollingActive && componentStyles['scrolling-active']
+          )}
+          onClick={toggleScrollingActive}
+          aria-hidden={true}
+        >
+          <span className={componentStyles['activation-overlay-text']}>
+            Tap to Scroll
+          </span>
+        </div>
       </div>
-      <div
-        className={cn(
-          componentStyles['activation-overlay'],
-          componentStyles['site-image-frame-position'],
-          scrollingActive && componentStyles['scrolling-active']
-        )}
-        onClick={toggleScrollingActive}
-        aria-hidden={true}
-      >
-        <span className={componentStyles['activation-overlay-text']}>
-          Tap to Scroll
-        </span>
-      </div>
+      <small className={componentStyles['mobile-tap']} aria-hidden={true}>
+        Tap Image to Scroll
+      </small>
     </div>
   );
 };
