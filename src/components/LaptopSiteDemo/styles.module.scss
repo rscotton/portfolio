@@ -4,7 +4,7 @@
 $laptop-frame-width: 869;
 $laptop-frame-height: 495;
 $laptop-frame-viewport-height: 414;
-$laptop-frame-viewport-offset-top: 22;
+$laptop-frame-viewport-offset-top: 21;
 $laptop-frame-viewport-offset-left: 120;
 $laptop-frame-viewport-offset-right: 118;
 
@@ -23,13 +23,49 @@ $site-image-offset-right-ratio: $laptop-frame-viewport-offset-right /
   line-height: 0;
 }
 
-.site-image {
-  position: absolute;
-  top: percentage($site-image-offset-top-ratio);
-  left: percentage($site-image-offset-left-ratio);
-  right: percentage($site-image-offset-right-ratio);
-  height: percentage($site-image-height-ratio);
+.site-image-frame {
   background-color: palette('off-white');
-  overflow: auto;
+  overflow: hidden;
   cursor: move;
+
+  &.scrolling-active {
+    overflow: auto;
+  }
+
+  &-inner {
+    position: relative;
+  }
+
+  &-position {
+    position: absolute;
+    top: percentage($site-image-offset-top-ratio);
+    left: percentage($site-image-offset-left-ratio);
+    right: percentage($site-image-offset-right-ratio);
+    height: percentage($site-image-height-ratio);
+  }
+}
+
+.activation-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  background-color: rgba(palette(space-black), 0.8);
+  cursor: pointer;
+  opacity: 0;
+  transition: transition(opacity, $speed: 150ms, $ease: ease-in-out);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.scrolling-active {
+    z-index: z(-1);
+    opacity: 0;
+  }
+
+  &-text {
+    font-weight: 700;
+    color: palette(galaxy-white);
+  }
 }

@@ -33,7 +33,7 @@ const ContactPanel: React.FC = () => {
 
     fetch(form.action, fetchOptions)
       .then(() => {
-        alert("Thanks for reaching out! I'll be in touch soon =)");
+        alert(`Thanks for reaching out! I'll be in touch soon =)`);
         form.reset();
       })
       .catch(error => alert(error));
