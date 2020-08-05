@@ -5,7 +5,7 @@ import { MenuItemNode } from '@src/types';
 import listStyles from '@src/styleUtils/modules/lists.module.scss';
 import componentStyles from './styles.module.scss';
 
-const GlobalHeader: React.FC = () => {
+const MainMenu: React.FC = () => {
   const mainMenuQuery = useStaticQuery(graphql`
     query MenuMainQuery {
       allMenuJson {
@@ -35,4 +35,4 @@ const GlobalHeader: React.FC = () => {
   );
 };
 
-export default GlobalHeader;
+export default MainMenu;

@@ -4,8 +4,14 @@ import Container from '@components/Container';
 import SocialMediaLinks from '@components/SocialMediaLinks';
 import componentStyles from './styles.module.scss';
 
-const GlobalFooter: React.FC = () => (
-  <footer aria-label="Site Footer" className={componentStyles.footer}>
+interface Props extends React.HTMLProps<HTMLElement> {}
+
+const GlobalFooter: React.FC<Props> = props => (
+  <footer
+    {...props}
+    aria-label="Site Footer"
+    className={componentStyles.footer}
+  >
     <Container>
       <div className={componentStyles['top-container']}>
         <section

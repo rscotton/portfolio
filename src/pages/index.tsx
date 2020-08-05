@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { jamesTestimonial } from '@src/constants';
 import GlobalHeader from '@components/GlobalHeader';
 import PortfolioItems from '@components/PortfolioItems';
 import GlobalFooter from '@components/GlobalFooter';
@@ -10,9 +11,7 @@ import PageLayout from '@components/PageLayout';
 import IntroPanel from '@components/IntroPanel';
 import SpaceSubfooter from '@components/SpaceSubfooter';
 import SkillSetPanel from '@src/components/SkillSetPanel';
-import TestimonialsPanel, {
-  Testimonial,
-} from '@src/components/TestimonialsPanel';
+import TestimonialsPanel from '@src/components/TestimonialsPanel';
 
 const IndexPage: React.FC = () => {
   const headshot = useStaticQuery(graphql`
@@ -26,21 +25,13 @@ const IndexPage: React.FC = () => {
       }
     }
   `);
-  const testimonial: Testimonial = {
-    quote: `I've had the pleasure of working with Ryan for several years. As an Art Director, it's refreshing to have a developer with not only an eye for design but one who challenges you to be a better designer.`,
-    authorName: 'James Fekete',
-    authorRole: 'Creative Director',
-    authorCompany: 'Coalmarch',
-    authorUrl: 'https://www.coalmarch.com/about-us/our-team/james-fekete',
-  };
 
   return (
     <>
       <Helmet>
         <html lang="en" />
-        <title>hi. i'm ryan.</title>
-        <meta name="description" content="hi. i'm ryan. i do codes." />
-        <meta name="theme-color" content="#1f2324" />
+        <title>Hi. I'm Ryan. I write code.</title>
+        <meta name="description" content="Hi. I'm Ryan. I write code." />
       </Helmet>
       <PageLayout>
         <GlobalHeader bigTitle="Hello world." title="I write code.">
@@ -70,7 +61,7 @@ const IndexPage: React.FC = () => {
         <PortfolioItems />
         <SpaceSubfooter>
           <SkillSetPanel />
-          <TestimonialsPanel testimonial={testimonial} />
+          <TestimonialsPanel testimonial={jamesTestimonial} />
         </SpaceSubfooter>
         <ContactPanel />
         <GlobalFooter />

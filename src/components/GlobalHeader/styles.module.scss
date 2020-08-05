@@ -168,6 +168,16 @@ $section-padding: rem(64);
   font-weight: 500;
   max-width: rem(450);
 
+  a {
+    color: palette(star-yellow);
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: palette(earth-blue);
+    }
+  }
+
   @include bp(medium) {
     margin-top: rem(64);
   }

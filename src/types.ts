@@ -39,7 +39,8 @@ export type StackItem =
   | 'doctrine'
   | 'react'
   | 'typescript'
-  | 'gatsby';
+  | 'gatsby'
+  | 'vue';
 
 export interface PortfolioItemNode {
   frontmatter: {
