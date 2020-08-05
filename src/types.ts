@@ -36,7 +36,10 @@ export type StackItem =
   | 'drupal'
   | 'symfony'
   | 'angular'
-  | 'doctrine';
+  | 'doctrine'
+  | 'react'
+  | 'typescript'
+  | 'gatsby';
 
 export interface PortfolioItemNode {
   frontmatter: {

@@ -24,11 +24,14 @@
   &-symfony,
   &-angular,
   &-twig,
-  &-doctrine {
+  &-doctrine,
+  &-typescript,
+  &-gatsby {
     color: palette('off-white');
   }
 
-  &-javascript {
+  &-javascript,
+  &-react {
     color: palette('space-black');
   }
 }

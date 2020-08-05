@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Color } from '@src/types';
-import { getFlatStackFromAllStackItems } from '@src/utils/queries';
 import GlobalHeader from '@components/GlobalHeader';
 import SocialMediaLinks from '@components/SocialMediaLinks';
 import StackBadgeCollection from '@components/StackBadge/components/StackBadgeCollection';
@@ -16,22 +15,9 @@ import proposaScreenshot from '@img/website_screenshots/proposa.png';
 import duntonDestinationsScreenshot from '@img/website_screenshots/dunton-destinations.png';
 import twinDolphinScreenshot from '@img/website_screenshots/twin-dolphin.png';
 import dukeDomScreenshot from '@img/website_screenshots/duke-dom.png';
+import { allStackItems } from '@src/constants';
 
 const StyleGuidePage: React.FC = () => {
-  const stackQuery = useStaticQuery(graphql`
-    query StackQuery {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              stack
-            }
-          }
-        }
-      }
-    }
-  `);
-  const fullStack = getFlatStackFromAllStackItems(stackQuery);
   const gridColStyle: React.CSSProperties = {
     backgroundColor: Color.SpaceBlack,
     border: '1px solid currentColor',
@@ -126,7 +112,7 @@ const StyleGuidePage: React.FC = () => {
           </section>
           <section>
             <h2>Badges</h2>
-            <StackBadgeCollection stack={fullStack} />
+            <StackBadgeCollection stack={allStackItems} />
           </section>
           <section>
             <h2>Social Media</h2>
