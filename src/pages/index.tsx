@@ -62,8 +62,8 @@ const IndexPage: React.FC = () => {
         <SpaceSubfooter>
           <SkillSetPanel />
           <TestimonialsPanel testimonial={jamesTestimonial} />
+          <ContactPanel />
         </SpaceSubfooter>
-        <ContactPanel />
         <GlobalFooter />
       </PageLayout>
     </>

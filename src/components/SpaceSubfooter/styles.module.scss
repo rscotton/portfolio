@@ -1,6 +1,12 @@
 @import 'src/styleUtils/helpers/mixins.scss';
 
 .wrap {
+  position: relative;
   background: palette(space-black);
   color: palette(galaxy-white);
+}
+
+.content {
+  position: relative;
+  z-index: z(1);
 }

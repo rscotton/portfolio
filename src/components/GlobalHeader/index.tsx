@@ -16,7 +16,9 @@ interface Props {
 const GlobalHeader: React.FC<Props> = ({ bigTitle, title, children }) => {
   const spaceMan = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "img/space-man.png" }) {
+      file(
+        relativePath: { eq: "img/background_assets/space-man-sitting.png" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 794) {
             ...GatsbyImageSharpFluid_withWebp

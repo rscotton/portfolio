@@ -21,8 +21,10 @@ export interface MenuItemNode {
   label: string;
 }
 
+export type SocialMediaNetwork = 'linkedin' | 'twitter' | 'github';
+
 export interface SocialMediaNode {
-  name: string;
+  name: SocialMediaNetwork;
   label: string;
   href: string;
 }

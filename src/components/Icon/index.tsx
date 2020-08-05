@@ -1,11 +1,12 @@
 import React from 'react';
+import { SocialMediaNetwork } from '@src/types';
 import IconGithub from '@img/icons/github.svg';
 import IconLinkedin from '@img/icons/linkedin.svg';
 import IconTwitter from '@img/icons/twitter.svg';
 import IconLongArrow from '@img/icons/long-arrow.svg';
 
 interface Props {
-  name: string;
+  name: SocialMediaNetwork | 'long-arrow';
 }
 
 const Icon: React.FC<Props> = ({ name }) => {
