@@ -33,7 +33,7 @@ const GlobalFooter: React.FC<Props> = props => (
           className={componentStyles['section-copyright']}
         >
           <h5 className={componentStyles.copyright}>
-            &copy; {new Date().getFullYear()} Ryan Scotton{' '}
+            &copy; {new Date().getFullYear()} Ryan Scotton
           </h5>
         </section>
       </div>

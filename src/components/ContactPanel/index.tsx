@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
+import cn from 'classnames';
 import { serialize } from '@src/utils/helpers';
 import PagePanel from '@components/PagePanel';
-import Container from '@components/Container';
+import Grid, { Col } from '@components/Grid';
+import Icon from '@components/Icon';
 import componentStyles from './styles.module.scss';
 
 const ContactPanel: React.FC = () => {
@@ -40,45 +42,66 @@ const ContactPanel: React.FC = () => {
   };
 
   return (
-    <PagePanel name="contact" theme="black">
-      <Container>
-        <h2 className={componentStyles.title}>Let's Collaborate</h2>
-        <form
-          name={formName}
-          method="post"
-          action="/"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          onSubmit={handleSubmit}
-          className={componentStyles.form}
-        >
-          <p className={componentStyles['form-item']}>
-            <input
-              ref={formInputEmailRef}
-              id={`${formName}-email`}
-              type="email"
-              name={`${formName}-email`}
-              className={componentStyles['form-input']}
-              onChange={handleInputChange}
-              required
-            />
-            <label
-              className={componentStyles['form-label']}
-              htmlFor={`${formName}-email`}
+    <PagePanel name="contact">
+      <Grid rowClassName={componentStyles.row}>
+        <Col md={10} mdOffset={1} lg={4}>
+          <h2 className={componentStyles.title}>Let's Collaborate</h2>
+        </Col>
+        <Col md={10} mdOffset={1} lg={4} lgOffset={0}>
+          <form
+            className={componentStyles.form}
+            name={formName}
+            method="post"
+            action="/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+          >
+            <div
+              className={cn(
+                componentStyles['form-item'],
+                componentStyles['form-item-email']
+              )}
             >
-              Email
-            </label>
-          </p>
-          <input type="hidden" name="form-name" value={formName} />
-          <p>
-            <input
-              id={`${formName}-submit`}
-              type="submit"
-              className={componentStyles['form-submit']}
-            />
-          </p>
-        </form>
-      </Container>
+              <input
+                ref={formInputEmailRef}
+                id={`${formName}-email`}
+                type="email"
+                name={`${formName}-email`}
+                className={cn(
+                  componentStyles['form-input'],
+                  componentStyles['form-input-email']
+                )}
+                onChange={handleInputChange}
+                required
+              />
+              <label
+                aria-hidden={true}
+                className={componentStyles['form-label']}
+                htmlFor={`${formName}-email`}
+              >
+                Email
+              </label>
+            </div>
+            <input type="hidden" name="form-name" value={formName} />
+            <div
+              className={cn(
+                componentStyles['form-item'],
+                componentStyles['form-item-submit']
+              )}
+            >
+              <input
+                id={`${formName}-submit`}
+                type="submit"
+                className={componentStyles['form-submit']}
+              />
+              <div className={componentStyles['icon-wrap']}>
+                <Icon name="long-arrow" />
+              </div>
+            </div>
+          </form>
+        </Col>
+      </Grid>
     </PagePanel>
   );
 };

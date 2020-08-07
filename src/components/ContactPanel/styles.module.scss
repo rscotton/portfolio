@@ -1,13 +1,49 @@
 @import 'src/styleUtils/helpers/mixins.scss';
 
+// TODO: Clean up / systemitize these styles as much as you can
+$input-submit-width: rem(75);
+$input-submit-transition-speed: 150ms;
+
+.row {
+  @include bp(large) {
+    align-items: flex-end;
+  }
+}
+
 .title {
   text-transform: lowercase;
+
+  @include bp(large) {
+    margin-bottom: 0;
+  }
 }
 
 .form {
+  position: relative;
+
+  @include bp(large) {
+    margin-bottom: rem(14);
+  }
+
   &-item {
     position: relative;
     margin-top: rem(24);
+    width: 100%;
+
+    @include bp(large) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &-submit {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 0;
+      width: auto;
+      background-color: transparent;
+      color: transparent;
+    }
   }
 
   &-label {
@@ -25,25 +61,55 @@
     padding: rem(12) rem(100) rem(12) 0;
     background-color: transparent;
     color: palette('galaxy-white');
+    width: 100%;
 
     &.non-empty ~ .form-label,
     &:focus ~ .form-label {
       transform: scale(0.9) translateY(-175%);
+    }
+
+    &-email {
+      padding-right: calc(#{$input-submit-width} + #{rem(10)});
     }
   }
 
   &-submit {
     border: 0;
     padding: rem(12) rem(24);
+    width: $input-submit-width;
     font-size: rem(18);
-    background-color: palette('star-yellow');
+    background-color: transparent;
+    color: transparent;
     cursor: pointer;
-    transition: transition(background-color), transition(color);
 
-    &:hover,
-    &:focus {
-      background-color: palette('earth-blue');
-      color: palette('galaxy-white');
+    &:hover + .icon-wrap,
+    &:focus + .icon-wrap {
+      transform: translate(-50%, -50%) scale(1.05);
+      color: palette(earth-blue);
     }
+  }
+}
+
+.icon-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: palette(galaxy-white);
+  user-select: none;
+  pointer-events: none;
+  transition: transition(
+      transform,
+      $speed: $input-submit-transition-speed,
+      $ease: ease-in-out
+    ),
+    transition(
+      transform,
+      $speed: $input-submit-transition-speed,
+      $ease: ease-in-out
+    );
+
+  svg {
+    width: rem(60);
   }
 }

@@ -17,7 +17,7 @@ interface Props {
   testimonial: Testimonial;
 }
 
-const TestimonialsPanel: React.FC<Props> = ({ testimonial }) => {
+const TestimonialPanel: React.FC<Props> = ({ testimonial }) => {
   const {
     quote,
     authorName,
@@ -64,4 +64,4 @@ const TestimonialsPanel: React.FC<Props> = ({ testimonial }) => {
   );
 };
 
-export default TestimonialsPanel;
+export default TestimonialPanel;

@@ -1,5 +1,5 @@
 import { StackItem } from '@src/types';
-import { Testimonial } from '@components/TestimonialsPanel';
+import { Testimonial } from '@components/TestimonialPanel';
 
 export const allStackItems: StackItem[] = [
   'php',

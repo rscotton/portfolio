@@ -2,11 +2,113 @@
 
 .wrap {
   position: relative;
-  background: palette(space-black);
+  padding-top: rem(100);
+  padding-bottom: rem(200);
+  background: url('/img/stars.svg') palette(space-black) no-repeat center center /
+    cover;
   color: palette(galaxy-white);
+  overflow: hidden;
+
+  @include bp(small) {
+    padding-bottom: rem(300);
+  }
+
+  @include bp(medium) {
+    padding-top: rem(200);
+    padding-bottom: rem(350);
+  }
+
+  @include bp(large) {
+    padding-top: rem(100);
+  }
+
+  @include bp(max) {
+    padding-top: rem(150);
+    padding-bottom: rem(150);
+  }
 }
 
 .content {
   position: relative;
   z-index: z(1);
+}
+
+.testimonial-panel {
+  position: relative;
+  padding-top: rem(200); // buffer for space man fly placement
+
+  @include bp(large) {
+    padding-top: 0;
+  }
+}
+
+.bg-img {
+  position: absolute;
+
+  &--moon-large {
+    top: 0;
+    right: 0;
+    width: 60%;
+
+    @include bp(large) {
+      width: 45%;
+    }
+  }
+
+  &--moon {
+    display: none;
+
+    @include bp(large) {
+      display: block;
+      top: rem(60);
+      left: rem(40);
+      width: percentage(1/8);
+    }
+  }
+
+  &--space-man-fly {
+    top: 0;
+    right: rem(-20);
+    z-index: 2;
+    width: 100%;
+    transform: translateX(40%);
+
+    @include bp(medium) {
+      width: 80%;
+    }
+
+    @include bp(large) {
+      top: rem(-100);
+      width: 50%;
+      transform: none;
+    }
+
+    @include bp(large) {
+      top: rem(-200);
+      width: 40%;
+    }
+  }
+
+  &--space-man-wave {
+    bottom: 0;
+    left: 0;
+    width: 150%;
+    max-width: rem(800);
+    transform: translateY(50%);
+
+    @include bp(medium) {
+      left: auto;
+      right: rem(-40);
+      width: 80%;
+      max-width: rem(700);
+      transform: translateY(30%);
+    }
+
+    @include bp(max) {
+      left: 0;
+      width: 50%;
+      max-width: none;
+      transform: translate(-25%, 30%);
+    }
+  }
 }
