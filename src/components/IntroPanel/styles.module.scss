@@ -8,6 +8,12 @@
   }
 }
 
+.content-col {
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .title {
   text-transform: lowercase;
 
@@ -17,5 +23,11 @@
 
   @include bp(max) {
     max-width: 70%;
+  }
+}
+
+.body {
+  > *:last-child {
+    margin-bottom: 0;
   }
 }

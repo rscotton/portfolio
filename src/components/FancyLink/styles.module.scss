@@ -6,6 +6,7 @@ $arrow-margin: rem(8);
 $underline-margin: rem(-2);
 $link-transition-speed: 150ms;
 
+// TODO: Tidy up this partial
 .link {
   position: relative;
   display: inline-flex;
@@ -22,10 +23,11 @@ $link-transition-speed: 150ms;
     text-decoration: none;
   }
 
-  svg {
+  &-arrow-wrap {
     order: -1;
     margin-right: $arrow-margin;
     width: $arrow-length-mobile;
+    line-height: 0;
     transition: transition(
       transform,
       $speed: $link-transition-speed,
@@ -37,22 +39,22 @@ $link-transition-speed: 150ms;
     }
   }
 
-  &:hover svg,
-  &:focus svg {
+  &:hover &-arrow-wrap,
+  &:focus &-arrow-wrap {
     transform: scale(1.1);
   }
 
   &-arrow {
-    &-black svg {
-      fill: palette(space-black);
+    &-black .link-arrow-wrap {
+      color: palette(space-black);
     }
 
-    &-white svg {
-      fill: palette(off-white);
+    &-white .link-arrow-wrap {
+      color: palette(off-white);
     }
 
-    &-grey svg {
-      fill: palette(moon-rock);
+    &-grey .link-arrow-wrap {
+      color: palette(moon-rock);
     }
   }
 

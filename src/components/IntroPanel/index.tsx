@@ -40,9 +40,9 @@ const IntroPanel: React.FC<Props> = ({
             </VerticalTitle>
           </Col>
         )}
-        <Col {...contentColProps}>
+        <Col {...contentColProps} className={componentStyles['content-col']}>
           <h2 className={componentStyles.title}>{title}</h2>
-          <div>{children}</div>
+          {children && <div className={componentStyles.body}>{children}</div>}
         </Col>
       </Grid>
     </PagePanel>

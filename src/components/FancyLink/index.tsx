@@ -28,7 +28,9 @@ const FancyLink: React.FC<FancyLinkProps> = ({
     {...rest}
   >
     <span>{children}</span>
-    <Icon name="long-arrow" />
+    <span className={componentStyles['link-arrow-wrap']}>
+      <Icon name="long-arrow" />
+    </span>
   </a>
 );
 
