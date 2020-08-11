@@ -7,7 +7,7 @@
 }
 
 .vertical-title-col {
-  @include bp(large) {
+  @include bp(medium) {
     align-self: flex-start;
   }
 }
@@ -15,7 +15,7 @@
 .vertical-title {
   display: none;
 
-  @include bp(large) {
+  @include bp(medium) {
     display: inline-block;
   }
 }

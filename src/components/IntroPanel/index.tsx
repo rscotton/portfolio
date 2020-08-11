@@ -20,11 +20,11 @@ const IntroPanel: React.FC<Props> = ({
   const contentColProps: ColProps = smallTitle
     ? {
         md: 8,
+        mdOffset: 1,
         xl: 7,
       }
     : {
         md: 8,
-        mdOffset: 2,
         lgOffset: 1,
         xl: 7,
         xlOffset: 2,
@@ -34,7 +34,7 @@ const IntroPanel: React.FC<Props> = ({
     <PagePanel name={panelName}>
       <Grid>
         {smallTitle && (
-          <Col md={2} lg={1} xl={2}>
+          <Col md={1} lg={1} xl={2}>
             <VerticalTitle className={componentStyles['vertical-title']}>
               {smallTitle}
             </VerticalTitle>

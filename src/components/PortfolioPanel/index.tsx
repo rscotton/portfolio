@@ -75,7 +75,7 @@ const PortfolioPanel: React.FC<Props> = ({
             Portfolio
           </VerticalTitle>
         </Col>
-        <Col lg={5} xl={4}>
+        <Col md={8} mdOffset={2} lg={5} lgOffset={0} xl={4}>
           <div className={componentStyles.body}>
             <div className={componentStyles['body-primary']}>
               <h2>{title}</h2>
